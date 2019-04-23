@@ -143,7 +143,22 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  let outArr = [];
+  arr.forEach(function(e){
+    if(((e % 3) === 0) && ((e % 5) === 0)){
+      outArr.push('Fizz Buzz');
+    }
+    else if((e % 5) === 0){
+      outArr.push('Buzz');
+    }
+    else if((e % 3) === 0){
+      outArr.push('Fizz');
+    }
+    else{
+      outArr.push(e);
+    }
+  });
+  return outArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
