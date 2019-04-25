@@ -37,7 +37,7 @@ const sortByLength = (arr) => {
     if(a.length < b.length){
       return -1;
     }
-    else if(a.lenth === b.length){
+    else if(a.length === b.length){
       return 0;
     }
     else{
@@ -56,7 +56,20 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
-  // Solution code here...
+  arr.sort( (a, b) => {
+    let aa = a.toUpperCase();
+    let bb = b.toUpperCase();
+    if(aa < bb){
+      return -1;
+    }
+    else if(aa === bb){
+      return 0;
+    }
+    else{
+      return 1;
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
