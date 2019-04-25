@@ -37,7 +37,7 @@ const sortByLength = (arr) => {
     if(a.length < b.length){
       return -1;
     }
-    else if(a.lenth === b.length){
+    else if(a.length === b.length){
       return 0;
     }
     else{
