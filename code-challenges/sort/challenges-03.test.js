@@ -86,7 +86,8 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  // Solution code here...
+  arr.sort( (a,b) => a.price - b.price);
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -97,9 +98,7 @@ Write a function named sortNumbersByLength that takes in an array of numbers and
 For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
 
-const sortNumbersByLength = (arr) => {
-  // Solution code here...
-};
+const sortNumbersByLength = (arr) => arr.sort( (a,b) => a.toString().length - b.toString().length);
 
 /*-----------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -119,9 +118,17 @@ const people = [
   new Person('Stan', 'Seattle', 67),
 ];
 
-const sortPeople = (arr) => {
-  // Solution code here...
-};
+const sortPeople = (arr) => arr.sort( (a,b) => {
+  if(a.lastName < b.lastName){
+    return -1;
+  }
+  else if(a.lastName === b.lastName){
+    return 0;
+  }
+  else{
+    return 1;
+  }
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
@@ -134,7 +141,34 @@ If two people have the same full name, the younger one should come first. Do not
 ------------------------------------------------------------------------------------------------ */
 
 const sortPeopleBetter = (arr) => {
-  // Solution code here...
+  arr.sort( (a,b) => {
+    if(a.lastName < b.lastName){
+      return -1;
+    }
+    else if(a.lastName === b.lastName){
+      if(a.firstName === b.firstName){
+        if(a.age < b.age){
+          return -1;
+        }
+        else if(a.age === b.age){
+          return 0;
+        }
+        else{
+          return -1;
+        }
+      }
+      else if(a.firstName < b.firstName){
+        return -1;
+      }
+      else{
+        return 1;
+      }
+    }
+    else{
+      return 1;
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
