@@ -38,7 +38,7 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 const citiesAtoJ = (arr) =>{
   let cArr = [];
   arr.forEach( (e)=> {
-    if(/\b[A-J][a-z]*/g.test(e)){
+    if(/\b[A-J][a-z]*/.test(e)){
       cArr.push(e);
     }
   });
@@ -56,7 +56,7 @@ If the user enters any of these four inputs, return true. For any other input, r
 Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
-const matchMonth = (input) => /\bo(ct)[a-z]*/gi.test(input);
+const matchMonth = (input) => /^([Oo]ct)(ober)?$/.test(input);
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -81,7 +81,7 @@ The function should return a string containing the consonants in their original 
 For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
-let hangman = (str) => str.replace(/(a|e|i|o|u)/gi,'_');
+let hangman = (str) => str.replace(/[aeiou]/gi,'_');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
