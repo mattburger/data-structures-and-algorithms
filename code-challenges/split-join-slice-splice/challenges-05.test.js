@@ -75,9 +75,9 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  for(let i = 0; i < recipe.ingredients.length; i++){
-    result.push( recipe.ingredients[i].slice( recipe.ingredients[i].indexOf(' ', 4) + 1, recipe.ingredients[i].length) );
-  }
+  recipe.ingredients.forEach(element => {
+    result.push( element.slice( element.indexOf(' ', 4) + 1, element.length) );
+  });
   return result;
 };
 
@@ -91,7 +91,13 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  let tmp;
+  let tmp2;
+  recipe.ingredients.forEach(element => {
+    tmp = element.split('');
+    tmp2 = tmp.slice( tmp.indexOf(' ', 4) + 1, tmp.length);
+    result.push(tmp2.join(''));
+  });
   return result;
 };
 
@@ -107,7 +113,9 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
+  recipe.steps.forEach( element => {
+    result.push(element.slice(0, element.indexOf(' ')));
+  });
   return result;
 };
 
@@ -125,7 +133,13 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  for(let i = 0; i < arr.length; i++){
+    console.log('Index ' + i + ' ' + arr[i]);
+    if( (arr[i] % 2) === 0){
+      arr.splice(i,1);
+      i -= 1;
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
