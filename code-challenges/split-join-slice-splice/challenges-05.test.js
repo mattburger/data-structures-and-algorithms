@@ -134,7 +134,7 @@ For example:
 
 const removeEvenValues = (arr) => {
   for(let i = 0; i < arr.length; i++){
-    console.log('Index ' + i + ' ' + arr[i]);
+    //console.log('Index ' + i + ' ' + arr[i]);
     if( (arr[i] % 2) === 0){
       arr.splice(i,1);
       i -= 1;
@@ -158,7 +158,15 @@ removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
 const removeLastCharacters = (str, numberOfCharacters) => {
-  // Solution code here...
+  if(str.length < numberOfCharacters){
+    return '';
+  }
+  else if(numberOfCharacters < 0){
+    return str;
+  }
+  else{
+    return str.slice(0,str.length - numberOfCharacters);
+  }
 };
 
 
@@ -170,7 +178,10 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 
 const totalSumCSV = (str) => {
   let total = 0;
-  // Solution code here...
+  let arr = str.split(',');
+  arr.forEach(e => {
+    total+= parseInt(e);
+  });
   return total;
 };
 
@@ -184,7 +195,14 @@ For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
 const removeVowels = (str) => {
-  // Solution code here...
+  for(let i = 0; i < str.length; i++){
+    //console.log('Index ' + i + ' ' + str[i]);
+    if(/[aeiou]/.test(str[i])){
+      str = str.replace(str[i],'');
+      i -= 1;
+    }
+  }
+  return str;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -198,7 +216,21 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 ------------------------------------------------------------------------------------------------ */
 
 const extractVowels = (str) => {
-  // Solution code here...
+  let arr = [];
+  let v = [];
+  for(let i = 0; i < str.length; i++){
+    //console.log('Index ' + i + ' ' + str[i]);
+    if(/[aeiou]/.test(str[i])){
+      v.push(str[i]);
+      str = str.replace(str[i],'');
+      i -= 1;
+    }
+  }
+  v.sort();
+  v = v.join('');
+  arr.push(str);
+  arr.push(v);
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
