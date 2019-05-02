@@ -82,15 +82,16 @@ Write a function named getStatName that is an extension of your getBaseStatGreat
 For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 'special-attack'].
 ------------------------------------------------------------------------------------------------ */
 
-const getStatName = (arr, minBaseStat) => {
-  let arr2 = arr.filter(e => {
-    return e.baseStat > minBaseStat;
-  });
-  let arr3 = arr2.map(e => {
-    return e.stat.name;
-  });
-  return arr3;
-};
+// const getStatName = (arr, minBaseStat) => {
+//   let arr2 = arr.filter(e => {
+//     return e.baseStat > minBaseStat;
+//   });
+//   let arr3 = arr2.map(e => {
+//     return e.stat.name;
+//   });
+//   return arr3;
+// };
+const getStatName = (arr, minBaseStat) => arr.filter(e => e.baseStat > minBaseStat).map(e =>e.stat.name);
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
