@@ -246,7 +246,16 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, arr) => {
-  // Solution code here...
+  // arr.reduce( (prev, curr) =>{
+  //   if(!(typeof(prev) === 'undefined')){
+  //     if(prev.name === statName){
+  //       return prev.name
+  //     }
+  //   }
+  //   else{
+
+  //   }
+  // });
 };
 
 /* ------------------------------------------------------------------------------------------------
