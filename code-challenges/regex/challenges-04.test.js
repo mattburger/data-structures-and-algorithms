@@ -38,10 +38,11 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 const citiesAtoJ = (arr) =>{
   let cArr = [];
   arr.forEach( (e)=> {
-    if(/\b[A-J][a-z]*/.test(e)){
+    if(/\b^[A-J]/.test(e)){
       cArr.push(e);
     }
   });
+  console.log(cArr);
   return cArr;
 };
 /* ------------------------------------------------------------------------------------------------
