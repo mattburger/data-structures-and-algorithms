@@ -23,8 +23,16 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
-
+  let total = 0;
+  let totalArr = [];
+  for(let i = 0; i < hoursOpen.length; i++){
+    for(let j = 0; j < cookieStores.length; j++){
+      total += cookieStores[j][i];
+    }
+    totalArr.push(total);
+    total = 0;
+  }
+  return totalArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -38,7 +46,13 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let index = -1;
+  let finalArr = [];
+  data.forEach(e => {
+    index++;
+    finalArr.push( {sales: `${e.toString()} cookies`, time: hours[index]} );
+  });
+  return finalArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -60,7 +74,17 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  let treats ;
+  arr.forEach(e => {
+    if(e.store === 'Pet store'){
+      e.items.forEach(el => {
+        if(el.name === 'Treats'){
+          treats = el.quantity;
+        }
+      });
+    }
+  });
+  return treats;
 };
 
 /* ------------------------------------------------------------------------------------------------
