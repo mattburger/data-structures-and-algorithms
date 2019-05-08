@@ -64,20 +64,20 @@ CHALLENGE 5
 
 Write a function named allHappy that takes in an array of strings and returns a Boolean indicating whether all those strings contain ":)".
 ------------------------------------------------------------------------------------------------ */
-let checkColonParen = (arr) => {
-  return arr.includes(':)');
+let checkColonParen = (str) => {
+  return str.includes(':)');
 };
-const allHappy = (arr) => checkColonParen.every(arr);
-
+const allHappy = (arr) => {
+  // console.log(arr.every(checkColonParen));
+  return arr.every(checkColonParen);
+};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
 Write a function named findAnything that takes in an array of strings, along with a target string. Return an array containing only those strings from the original array that contain the target string.
 ------------------------------------------------------------------------------------------------ */
 
-const findAnything = (arr, target) => {
-  // Solution code here...
-};
+const findAnything = (arr, target) => arr.filter( e => e.includes(target));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -86,7 +86,18 @@ Write a function named findEvery that takes in an array of strings, along with a
 ------------------------------------------------------------------------------------------------ */
 
 const findEvery = (arr, target) => {
-  // Solution code here...
+  let flag = 1;
+  arr.forEach(element => {
+    if(!element.includes(target) ){
+      flag = 0;
+    }
+  });
+  if(flag === 1){
+    return true;
+  }
+  else{
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
