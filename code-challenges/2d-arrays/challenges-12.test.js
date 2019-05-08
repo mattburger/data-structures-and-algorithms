@@ -106,7 +106,11 @@ The top row of the board is considered row zero and row numbers increase as they
 ------------------------------------------------------------------------------------------------ */
 
 const battleship = (board, row, col) => {
-  //  Solution code here...
+  if(board[row][col] === '#'){
+    return 'hit';
+  }
+  else
+    return 'miss';
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -118,7 +122,20 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
+  let mapArr = numbers.map(e => {
+    if(!(e.length === 0)){
+      return e.reduce( (a,c) => a * c);
+    }
+  });
+  mapArr = mapArr.reverse();
+  let mapArr2 = [];
+  mapArr.forEach(e => {
+    if(!(typeof(e) === 'undefined')){
+      mapArr2.push(e);
+    }
+  });
+  let result = mapArr2.reduce ( (a,c) => a * c);
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -138,7 +155,14 @@ const weeklyTemperatures = [
 ];
 
 const averageDailyTemperature = (weather) => {
-  // Solution code here...
+  let datasetLen = weather.length * weather[0].length;
+  let total = 0;
+  for(let i = 0; i < weather.length; i++){
+    for(let j = 0; j < weather[i].length; j++){
+      total += weather[i][j];
+    }
+  }
+  return total/datasetLen;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -159,9 +183,17 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+  let placeH = 500;
+  let arr = weather.map( e => {
+    return e.reduce( (a,c) => a + c);
+  });
+  arr.forEach( e =>{
+    if(e < placeH){
+      placeH = e;
+    }
+  });
+  return placeH/weather[0].length;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
 
@@ -175,7 +207,17 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
 const excel = (str) => {
-  // Solution code here...
+  let arr = str.split('\n');
+  let arr2 = [];
+  arr.forEach( e => {
+    arr2.push(e.split(','));
+  });
+  let arr3 = arr2.map( e => {
+    return e.reduce( (a,c) => {
+      return parseInt(a) + parseInt(c);
+    });
+  });
+  return arr3;
 };
 
 /* ------------------------------------------------------------------------------------------------
