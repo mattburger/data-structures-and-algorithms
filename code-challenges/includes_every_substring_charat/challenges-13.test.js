@@ -112,9 +112,7 @@ Return a two-dimensional array with the same roster, but where anyone whose name
 For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again', 'still Brook']] returns [['Actual Person'], ['Human Person']]
 ------------------------------------------------------------------------------------------------ */
 
-const unenrollBrook = (arr) => {
-  // Solution code here...
-};
+const unenrollBrook = (arr) => arr.map(el => el.filter(element => !(element.includes('Brook'))));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
@@ -152,7 +150,9 @@ For example, ['abcd', 'efgh', 'ijkl', 'mnop'] returns ['a', 'f', 'k', 'p']
 ------------------------------------------------------------------------------------------------ */
 
 const characterByIndex = (arr) => {
-  // Solution code here...
+  return arr.reduce( el =>{
+    el.reduce( ())
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
