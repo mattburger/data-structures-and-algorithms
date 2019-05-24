@@ -148,7 +148,7 @@ http://www.insecure.com returns false because the URL is not secure
 https://secure.com returns true because the URL is secure
 https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
-const isSecure = (url) => /\b(https)(:\/\/)((\w+.)(\w+.)([\w]{3})$)|((\w+.)([\w]{3})$)/.test(url);
+const isSecure = (url) => url.startsWith(url);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
