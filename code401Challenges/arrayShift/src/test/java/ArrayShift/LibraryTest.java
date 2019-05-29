@@ -11,4 +11,44 @@ public class LibraryTest {
         Library classUnderTest = new Library();
         assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
     }
+
+    @Test public void testInsertShiftMethod_odd() {
+        Library classForTesting = new Library();
+        int inputVal = 7;
+        int[] inputArr = new int[]{1, 2, 3, 4, 5};
+        int[] expectedOutput = new int[]{1, 2, 3, 7, 4, 5};
+        assertArrayEquals("insertShiftMethod should return an array with a new value added at the midpoint", //message
+                expectedOutput, // expected result
+                classForTesting.insertShiftArray(inputArr, inputVal) ); //actual result
+    }
+
+    @Test public void testInsertShiftMethod_even() {
+        Library classForTesting = new Library();
+        int inputVal = 7;
+        int[] inputArr = new int[]{1, 2, 3, 4};
+        int[] expectedOutput = new int[]{1, 2, 7, 3, 4};
+        assertArrayEquals("insertShiftMethod should return an array with a new value added at the midpoint", //message
+                expectedOutput, // expected result
+                classForTesting.insertShiftArray(inputArr, inputVal) ); //actual result
+    }
+
+    @Test public void testInsertShiftMethod_same() {
+        Library classForTesting = new Library();
+        int inputVal = 7;
+        int[] inputArr = new int[]{7, 7, 7};
+        int[] expectedOutput = new int[]{7, 7, 7, 7};
+        assertArrayEquals("insertShiftMethod should return an array with increased length", //message
+                expectedOutput, // expected result
+                classForTesting.insertShiftArray(inputArr, inputVal) ); //actual result
+    }
+
+    @Test public void testInsertShiftMethod_empty() {
+        Library classForTesting = new Library();
+        int inputVal = 7;
+        int[] inputArr = new int[0];
+        int[] expectedOutput = new int[]{7};
+        assertArrayEquals("insertShiftMethod should return an array with a new value added to empty array", //message
+                expectedOutput, // expected result
+                classForTesting.insertShiftArray(inputArr, inputVal) ); //actual result
+    }
 }
