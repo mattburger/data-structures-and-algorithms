@@ -7,4 +7,34 @@ public class Library {
     public boolean someLibraryMethod() {
         return true;
     }
+
+    public int[] insertShiftArray(int [] inputArr, int value){
+        int[] outputArr = new int[inputArr.length + 1];
+        int mid = 0;
+        int flag = 0;
+
+        if( (inputArr.length % 2) > 0 ){
+            double tmp = (double) inputArr.length;
+            tmp = tmp/2;
+            tmp = Math.ceil(tmp);
+            mid = (int) tmp;
+        }else{
+            mid = inputArr.length/2;
+        }
+        for(int i = 0; i < outputArr.length; i++){
+            if(i == mid){
+                outputArr[i] = value;
+                flag = 1;
+            }else{
+                if(flag == 1){
+                    outputArr[i] = inputArr[i - 1];
+                }
+                else{
+                    outputArr[i] = inputArr[i];
+                }
+            }
+        }
+
+        return outputArr;
+    }
 }
