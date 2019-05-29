@@ -33,4 +33,23 @@ public class BinarySearchTest {
         int expectedOutput = input.length/2;
         assertEquals("binarySearch should return the index of the search key", expectedOutput, testingClass.binarySearch(input, searchKey));
     }
+
+    @Test
+    public void testBinarySearch_biggerArrays() {
+        BinarySearch testingClass = new BinarySearch();
+        int input[] = testingClass.generatArr(10000);
+        int searchKey = 990;
+        int expectedOutput = 990;
+        assertEquals("binarySearch should return the index of the search key", expectedOutput, testingClass.binarySearch(input, searchKey));
+    }
+
+    @Test
+    public void testBinarySearch_biggerArrays_notExist() {
+        BinarySearch testingClass = new BinarySearch();
+        int input[] = testingClass.generatArr(10000);
+        int searchKey = 10001;
+        int expectedOutput = -1;
+        assertEquals("binarySearch should return the index of the search key", expectedOutput, testingClass.binarySearch(input, searchKey));
+    }
+
 }
