@@ -12,4 +12,7 @@ Create a new array newARR of size inputArray.length + 1 and determine midpoint o
 
 ## Solution
 <!-- Embedded whiteboard image -->
-![Whiteboard breakout](http://url/to/img.png)
+![Whiteboard Image 1](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/arrayShift/whiteboard/20190528_173531.jpg)
+
+![Whiteboard Image 1](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/arrayShift/whiteboard/20190528_173537.jpg)
+
