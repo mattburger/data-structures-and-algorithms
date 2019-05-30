@@ -10,3 +10,4 @@ Write a function called BinarySearch which takes in 2 parameters: a sorted array
  - Big O - Time: O(logn) Space: O(1)
 ## Solution
 <!-- Embedded whiteboard image -->
+![White Board Picture](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/binarySearch/assets/array_binary_search.jpg)
