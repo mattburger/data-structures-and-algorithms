@@ -35,8 +35,6 @@ public class TestLinkedList {
         ls = LinkedList.Node.insertAtHead(ls, 3);
         ls = LinkedList.Node.insertAtHead(ls, '2');
         ls = LinkedList.Node.insertAtHead(ls, true);
-        String testOuput = LinkedList.Node.printLinkeList(ls);
-        System.out.println("testOuput: " + testOuput);
         String expectedOutput = "List contents: true 2 3 ";
 
         assertEquals("printLinkedList should return contents of the linked list, or a message stating there is not data. ", expectedOutput, LinkedList.Node.printLinkeList(ls));
@@ -76,4 +74,54 @@ public class TestLinkedList {
         boolean testedOutput = LinkedList.Node.linkedListIncludes(ls, 3);
         assertFalse("linkedListIncludes should return true or false. ", testedOutput);
     }
+
+    //test challenge 6 insertion methods
+    @Test
+    public void testAppend_oneValue(){
+        LinkedList ls = new LinkedList();
+        ls.append(5);
+        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String expectedOutput = "List contents: 5 ";
+        assertEquals("append should add a value to the end of the list. ", expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testAppend_multipleValues(){
+        LinkedList ls = new LinkedList();
+        ls.append(5);
+        ls.append('C');
+        ls.append(true);
+        ls.append(10);
+        ls.append("End");
+        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String expectedOutput = "List contents: 5 C true 10 End ";
+        assertEquals("append should add a value to the end of the list. ", expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testInsertBefore(){
+        LinkedList ls = new LinkedList();
+        ls.insertBefore(5,4);
+        ls.insertBefore(4, 3);
+        ls.insertBefore(3, 2);
+        ls.insertBefore(2, 1);
+
+        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String expectedOutput = "List contents: 1 2 3 4 ";
+        assertEquals("insertBefore should add a value before the designate value. In case the value doesn't exist, the new value is added at head. ", expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testInsertAfter(){
+        LinkedList ls = new LinkedList();
+        ls.insertAfter(0,1);
+        ls.insertAfter(1, 2);
+        ls.insertAfter(2, 3);
+        ls.insertAfter(3, 4);
+
+        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String expectedOutput = "List contents: 1 2 3 4 ";
+        assertEquals("insertBefore should add a value before the designate value. In case the value doesn't exist, the new value is added at head. ", expectedOutput, actualOutput);
+    }
+
 }
