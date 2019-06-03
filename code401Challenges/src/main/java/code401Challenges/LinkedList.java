@@ -4,6 +4,80 @@ public class LinkedList {
     Node head = null;
 //    Node tail;
 
+    //code challenge 6 additions
+    //add node to end of list
+    protected void append(Object data){
+        Node newNode = new Node(data);
+        newNode.next = null;
+        Node lastNode;
+
+        //if head is null, make head the new value
+        if(this.head == null){
+            this.head = newNode;
+
+        }
+        //move old head to the right and insert new head
+        else{
+            lastNode = this.head;
+            while(lastNode.next != null ){
+                lastNode = lastNode.next;
+            }
+            lastNode.next = newNode;
+        }
+    }
+
+    //insertBefore
+    protected void insertBefore(Object value, Object newValue){
+        if(this.head == null){
+            this.head = new Node(newValue);
+            this.head.next = null;
+        }
+        else{
+            Node newNode = new Node(newValue);
+            Node findVal = this.head;
+            while( (findVal.next != null) && (findVal.next.data != value) ){
+                findVal = findVal.next;
+            }
+            if( findVal.next != null ){
+                if(findVal.next.data == value) {
+                    Node tmp = findVal;
+                    findVal = newNode;
+                    findVal.next = tmp;
+                }
+
+            }
+            else{
+                Node tmp = this.head;
+                this.head = newNode;
+                this.head.next = tmp;
+            }
+        }
+    }
+
+    //insertAfter
+    protected void insertAfter(Object value, Object newValue){
+        if(this.head == null){
+            this.head = new Node(newValue);
+            this.head.next = null;
+        }
+        else{
+            Node newNode = new Node(newValue);
+            Node findVal = this.head;
+            while( (findVal.data != value) && (findVal.next != null) ){
+                findVal = findVal.next;
+            }
+            if(findVal.data == value){
+                Node tmp = findVal.next;
+                findVal.next = newNode;
+                findVal.next.next = tmp;
+
+            }
+            else{
+                findVal.next = newNode;
+            }
+        }
+    }
+
     static class Node{
         Object data;//data held within the node
         Node next; // reference to next node or null
@@ -42,7 +116,6 @@ public class LinkedList {
 
             //if head is null than return a message stating there is no data to print
             if(currentNode == null){
-                System.out.println("No data");
                 return "Linked List has no data.";
             }
             //traverse list and add each node's data to output
