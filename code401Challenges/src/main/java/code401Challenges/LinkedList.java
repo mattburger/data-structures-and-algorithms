@@ -35,22 +35,26 @@ public class LinkedList {
         else{
             Node newNode = new Node(newValue);
             Node findVal = this.head;
-            while( (findVal.next != null) && (findVal.next.data != value) ){
-                findVal = findVal.next;
-            }
-            if( findVal.next != null ){
-                if(findVal.next.data == value) {
-                    Node tmp = findVal;
-                    findVal = newNode;
-                    findVal.next = tmp;
+            try {
+                while ( /*(findVal.next != null) && */(findVal.next.data != value)) {
+                    findVal = findVal.next;
                 }
-
+                //if( findVal.next != null ){
+                if (findVal.next.data == value) {
+                    Node tmp = findVal.next;
+                    findVal.next = newNode;
+                    findVal.next.next = tmp;
+                }
             }
-            else{
-                Node tmp = this.head;
-                this.head = newNode;
-                this.head.next = tmp;
+            catch (NullPointerException err){
+                throw new IllegalArgumentException("Bad target value");
             }
+            //}
+//            else{
+//                Node tmp = this.head;
+//                this.head = newNode;
+//                this.head.next = tmp;
+//            }
         }
     }
 
@@ -63,18 +67,23 @@ public class LinkedList {
         else{
             Node newNode = new Node(newValue);
             Node findVal = this.head;
-            while( (findVal.data != value) && (findVal.next != null) ){
-                findVal = findVal.next;
-            }
-            if(findVal.data == value){
-                Node tmp = findVal.next;
-                findVal.next = newNode;
-                findVal.next.next = tmp;
+            try {
+                while ((findVal.data != value)/* && (findVal.next != null) */) {
+                    findVal = findVal.next;
+                }
+                if (findVal.data == value) {
+                    Node tmp = findVal.next;
+                    findVal.next = newNode;
+                    findVal.next.next = tmp;
 
+                }
             }
-            else{
-                findVal.next = newNode;
+            catch(NullPointerException err){
+                throw new IllegalArgumentException("Bad target value");
             }
+//            else{
+//                findVal.next = newNode;
+//            }
         }
     }
 
