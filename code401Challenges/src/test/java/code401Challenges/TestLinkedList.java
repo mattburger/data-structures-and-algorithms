@@ -101,27 +101,84 @@ public class TestLinkedList {
     @Test
     public void testInsertBefore(){
         LinkedList ls = new LinkedList();
-        ls.insertBefore(5,4);
-        ls.insertBefore(4, 3);
-        ls.insertBefore(3, 2);
-        ls.insertBefore(2, 1);
+        ls.append(1);
+        ls.append(2);
+        ls.append(4);
+        ls.insertBefore(4,3);
 
         String actualOutput = LinkedList.Node.printLinkeList(ls);
         String expectedOutput = "List contents: 1 2 3 4 ";
-        assertEquals("insertBefore should add a value before the designate value. In case the value doesn't exist, the new value is added at head. ", expectedOutput, actualOutput);
+        assertEquals("insertBefore should add a value before the designate value. ", expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testInsertBefore_multipleTargetValues(){
+        LinkedList ls = new LinkedList();
+        ls.append(1);
+        ls.append(2);
+        ls.append(5);
+        ls.append(5);
+        ls.append(5);
+        ls.insertBefore(5,4);
+
+        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String expectedOutput = "List contents: 1 2 4 5 5 5 ";
+        assertEquals("insertBefore should add a value before the designated value. If there are multiple target values, insert will happen before the 1st occurrence. ", expectedOutput, actualOutput);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testInsertBefore_failure(){
+        LinkedList ls = new LinkedList();
+        ls.append(1);
+        ls.append(2);
+        ls.append(5);
+        ls.append(5);
+        ls.append(5);
+        ls.insertBefore(4,3);
+
+        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String expectedOutput = "List contents: 1 2 4 5 5 5 ";
+        assertEquals("insertBefore should add a value before the designated value. If there are multiple target values, insert will happen before the 1st occurrence. ", expectedOutput, actualOutput);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testInsertAfter_failure(){
+        LinkedList ls = new LinkedList();
+        ls.append(1);
+        ls.append(2);
+        ls.append(2);
+        ls.append(4);
+        ls.insertAfter(3, 4);
+        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String expectedOutput = "List contents: 1 2 4 2 4 ";
+        assertEquals("insertAfter should add a value after the designated value. If there are multiple target values, insert will happen after the 1st occurrence.", expectedOutput, actualOutput);
     }
 
     @Test
     public void testInsertAfter(){
         LinkedList ls = new LinkedList();
-        ls.insertAfter(0,1);
-        ls.insertAfter(1, 2);
-        ls.insertAfter(2, 3);
+        ls.append(1);
+        ls.append(2);
+        ls.append(3);
         ls.insertAfter(3, 4);
 
         String actualOutput = LinkedList.Node.printLinkeList(ls);
         String expectedOutput = "List contents: 1 2 3 4 ";
-        assertEquals("insertBefore should add a value before the designate value. In case the value doesn't exist, the new value is added at head. ", expectedOutput, actualOutput);
+        assertEquals("insertAfter should add a value after the designated value. ", expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testInsertAfter_multipleTargetValues(){
+        LinkedList ls = new LinkedList();
+        ls.append(1);
+        ls.append(2);
+        ls.append(2);
+        ls.append(4);
+        ls.insertAfter(2, 4);
+        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String expectedOutput = "List contents: 1 2 4 2 4 ";
+        assertEquals("insertAfter should add a value after the designated value. If there are multiple target values, insert will happen after the 1st occurrence.", expectedOutput, actualOutput);
     }
 
 }
+
