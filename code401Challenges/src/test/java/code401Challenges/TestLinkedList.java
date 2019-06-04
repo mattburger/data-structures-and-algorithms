@@ -35,8 +35,6 @@ public class TestLinkedList {
         ls = LinkedList.Node.insertAtHead(ls, 3);
         ls = LinkedList.Node.insertAtHead(ls, '2');
         ls = LinkedList.Node.insertAtHead(ls, true);
-        String testOuput = LinkedList.Node.printLinkeList(ls);
-        System.out.println("testOuput: " + testOuput);
         String expectedOutput = "List contents: true 2 3 ";
 
         assertEquals("printLinkedList should return contents of the linked list, or a message stating there is not data. ", expectedOutput, LinkedList.Node.printLinkeList(ls));
@@ -76,4 +74,111 @@ public class TestLinkedList {
         boolean testedOutput = LinkedList.Node.linkedListIncludes(ls, 3);
         assertFalse("linkedListIncludes should return true or false. ", testedOutput);
     }
+
+    //test challenge 6 insertion methods
+    @Test
+    public void testAppend_oneValue(){
+        LinkedList ls = new LinkedList();
+        ls.append(5);
+        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String expectedOutput = "List contents: 5 ";
+        assertEquals("append should add a value to the end of the list. ", expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testAppend_multipleValues(){
+        LinkedList ls = new LinkedList();
+        ls.append(5);
+        ls.append('C');
+        ls.append(true);
+        ls.append(10);
+        ls.append("End");
+        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String expectedOutput = "List contents: 5 C true 10 End ";
+        assertEquals("append should add a value to the end of the list. ", expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testInsertBefore(){
+        LinkedList ls = new LinkedList();
+        ls.append(1);
+        ls.append(2);
+        ls.append(4);
+        ls.insertBefore(4,3);
+
+        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String expectedOutput = "List contents: 1 2 3 4 ";
+        assertEquals("insertBefore should add a value before the designate value. ", expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testInsertBefore_multipleTargetValues(){
+        LinkedList ls = new LinkedList();
+        ls.append(1);
+        ls.append(2);
+        ls.append(5);
+        ls.append(5);
+        ls.append(5);
+        ls.insertBefore(5,4);
+
+        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String expectedOutput = "List contents: 1 2 4 5 5 5 ";
+        assertEquals("insertBefore should add a value before the designated value. If there are multiple target values, insert will happen before the 1st occurrence. ", expectedOutput, actualOutput);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testInsertBefore_failure(){
+        LinkedList ls = new LinkedList();
+        ls.append(1);
+        ls.append(2);
+        ls.append(5);
+        ls.append(5);
+        ls.append(5);
+        ls.insertBefore(4,3);
+
+        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String expectedOutput = "List contents: 1 2 4 5 5 5 ";
+        assertEquals("insertBefore should add a value before the designated value. If there are multiple target values, insert will happen before the 1st occurrence. ", expectedOutput, actualOutput);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testInsertAfter_failure(){
+        LinkedList ls = new LinkedList();
+        ls.append(1);
+        ls.append(2);
+        ls.append(2);
+        ls.append(4);
+        ls.insertAfter(3, 4);
+        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String expectedOutput = "List contents: 1 2 4 2 4 ";
+        assertEquals("insertAfter should add a value after the designated value. If there are multiple target values, insert will happen after the 1st occurrence.", expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testInsertAfter(){
+        LinkedList ls = new LinkedList();
+        ls.append(1);
+        ls.append(2);
+        ls.append(3);
+        ls.insertAfter(3, 4);
+
+        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String expectedOutput = "List contents: 1 2 3 4 ";
+        assertEquals("insertAfter should add a value after the designated value. ", expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testInsertAfter_multipleTargetValues(){
+        LinkedList ls = new LinkedList();
+        ls.append(1);
+        ls.append(2);
+        ls.append(2);
+        ls.append(4);
+        ls.insertAfter(2, 4);
+        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String expectedOutput = "List contents: 1 2 4 2 4 ";
+        assertEquals("insertAfter should add a value after the designated value. If there are multiple target values, insert will happen after the 1st occurrence.", expectedOutput, actualOutput);
+    }
+
 }
+
