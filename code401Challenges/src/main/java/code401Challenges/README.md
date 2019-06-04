@@ -23,3 +23,6 @@ Implement a Singly Linked List Data Structure
 - insertAtHead
 - printLinkeList
 - linkedListIncludes
+
+## Solution
+![Whiteboard](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/main/resources/ll_insertions.jpg)
