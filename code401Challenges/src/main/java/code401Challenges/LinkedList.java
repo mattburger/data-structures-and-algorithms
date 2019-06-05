@@ -118,7 +118,7 @@ public class LinkedList {
                 throw new IllegalArgumentException("k must be withing the bounds of the list.");
             }
 
-            return main.data;
+            return main.data; 
         }
     }
 
