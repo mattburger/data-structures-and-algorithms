@@ -195,7 +195,7 @@ public class TestLinkedList {
     public void testGetKthFromEnd_middle(){
         LinkedList ll = createLinkedList(4);
         Object actualOutput = ll.getKthFromEnd(2);
-        Object expectedOutpu = 2;
+        Object expectedOutpu = 3;
 
         assertEquals("values should be equal", expectedOutpu, actualOutput);
 
@@ -225,7 +225,7 @@ public class TestLinkedList {
     public void testGetKthFromEnd_negativeK(){
         LinkedList ll = createLinkedList(4);
         Object actualOutput = ll.getKthFromEnd(-2);
-        Object expectedOutpu = 2;
+        Object expectedOutpu = 3;
 
         assertEquals("values should be equal", expectedOutpu, actualOutput);
 
@@ -235,6 +235,16 @@ public class TestLinkedList {
     public void testGetKthFromEnd_lengthLessThanK(){
         LinkedList ll = createLinkedList(4);
         Object actualOutput = ll.getKthFromEnd(10);
+        Object expectedOutpu = 2;
+
+        assertEquals("values should be equal", expectedOutpu, actualOutput);
+
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testGetKthFromEnd_null(){
+        LinkedList ll = new LinkedList();
+        Object actualOutput = ll.getKthFromEnd(2);
         Object expectedOutpu = 2;
 
         assertEquals("values should be equal", expectedOutpu, actualOutput);
