@@ -101,7 +101,7 @@ public class LinkedList {
             int length = 0;
             k = abs(k); //absolute value of k
 
-            while(ref != null){
+            while(ref.next != null){
                 if(count == k){
                     ref = ref.next;
                     main = main.next;
@@ -114,7 +114,7 @@ public class LinkedList {
                 }
 
             }
-            if(count < k || length < k){
+            if( (count + 1 < k) || (length + 1 < k) ){
                 throw new IllegalArgumentException("k must be withing the bounds of the list.");
             }
 
