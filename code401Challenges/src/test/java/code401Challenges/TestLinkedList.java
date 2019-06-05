@@ -4,6 +4,17 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TestLinkedList {
+
+    //helper function to create Linked Lists
+    LinkedList createLinkedList(int n){
+        LinkedList ll = new LinkedList();
+
+        for(int i = 0; i < n; i++){
+            ll.append(i + 1);
+        }
+        return ll;
+    }
+
     //testing for insertion method-----------------------------------
     @Test
     public void testLinkedListInsertion(){
@@ -180,5 +191,64 @@ public class TestLinkedList {
         assertEquals("insertAfter should add a value after the designated value. If there are multiple target values, insert will happen after the 1st occurrence.", expectedOutput, actualOutput);
     }
 
+    @Test
+    public void testGetKthFromEnd_middle(){
+        LinkedList ll = createLinkedList(4);
+        Object actualOutput = ll.getKthFromEnd(2);
+        Object expectedOutpu = 3;
+
+        assertEquals("values should be equal", expectedOutpu, actualOutput);
+
+    }
+
+    @Test
+    public void testGetKthFromEnd_lengthEqualToK(){
+        LinkedList ll = createLinkedList(4);
+        Object actualOutput = ll.getKthFromEnd(4);
+        Object expectedOutpu = 1;
+
+        assertEquals("values should be equal", expectedOutpu, actualOutput);
+
+    }
+
+    @Test
+    public void testGetKthFromEnd_oneNode(){
+        LinkedList ll = createLinkedList(1);
+        Object actualOutput = ll.getKthFromEnd(1);
+        Object expectedOutpu = 1;
+
+        assertEquals("values should be equal", expectedOutpu, actualOutput);
+
+    }
+
+    @Test
+    public void testGetKthFromEnd_negativeK(){
+        LinkedList ll = createLinkedList(4);
+        Object actualOutput = ll.getKthFromEnd(-2);
+        Object expectedOutpu = 3;
+
+        assertEquals("values should be equal", expectedOutpu, actualOutput);
+
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetKthFromEnd_lengthLessThanK(){
+        LinkedList ll = createLinkedList(4);
+        Object actualOutput = ll.getKthFromEnd(10);
+        Object expectedOutpu = 2;
+
+        assertEquals("values should be equal", expectedOutpu, actualOutput);
+
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testGetKthFromEnd_null(){
+        LinkedList ll = new LinkedList();
+        Object actualOutput = ll.getKthFromEnd(2);
+        Object expectedOutpu = 2;
+
+        assertEquals("values should be equal", expectedOutpu, actualOutput);
+
+    }
 }
 

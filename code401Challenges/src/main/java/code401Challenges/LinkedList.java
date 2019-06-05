@@ -1,5 +1,7 @@
 package code401Challenges;
 
+import static java.lang.Math.abs;
+
 public class LinkedList {
     Node head = null;
 //    Node tail;
@@ -84,6 +86,39 @@ public class LinkedList {
 //            else{
 //                findVal.next = newNode;
 //            }
+        }
+    }
+
+    //kth from end method challenge 7
+    public Object getKthFromEnd(int k){
+        if(this.head == null){
+            throw new IllegalStateException("can't find kth node of an empty linked list!");
+        }
+        else{
+            Node ref = this.head;
+            Node main = this.head;
+            int count = 0;
+            int length = 0;
+            k = abs(k); //absolute value of k
+
+            while(ref != null){
+                if(count == k){
+                    ref = ref.next;
+                    main = main.next;
+                    length++;
+                }
+                else{
+                    ref = ref.next;
+                    count++;
+                    length++;
+                }
+
+            }
+            if(count < k || length < k){
+                throw new IllegalArgumentException("k must be withing the bounds of the list.");
+            }
+
+            return main.data;
         }
     }
 
