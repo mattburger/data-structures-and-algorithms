@@ -90,37 +90,68 @@ public class LinkedList {
     }
 
     //kth from end method challenge 7
-    public Object getKthFromEnd(int k){
-        if(this.head == null){
+    public Object getKthFromEnd(int k) {
+        if (this.head == null) {
             throw new IllegalStateException("can't find kth node of an empty linked list!");
-        }
-        else{
+        } else {
             Node ref = this.head;
             Node main = this.head;
             int count = 0;
             int length = 0;
             k = abs(k); //absolute value of k
 
-            while(ref.next != null){
-                if(count == k){
+            while (ref.next != null) {
+                if (count == k) {
                     ref = ref.next;
                     main = main.next;
                     length++;
-                }
-                else{
+                } else {
                     ref = ref.next;
                     count++;
                     length++;
                 }
 
             }
-            if( (count + 1 < k) || (length + 1 < k) ){
+            if ((count + 1 < k) || (length + 1 < k)) {
                 throw new IllegalArgumentException("k must be withing the bounds of the list.");
             }
 
-            return main.data; 
+            return main.data;
         }
     }
+
+    public static LinkedList mergeLists(LinkedList ls1, LinkedList ls2){
+        if ((ls1 == null) && (ls2 == null)) {
+            ls1.head = new Node(1);
+            return ls1;
+        } else if (ls1 == null) {
+            return ls2;
+        } else if (ls2 == null) {
+            return ls1;
+        }else {
+            Node ptr1 = ls1.head;
+            Node ptr2 = ls2.head;
+            LinkedList ls3 = new LinkedList();
+            while ( (ptr1.next != null) && (ptr2.next != null)) {
+                Node tmp = ptr1.next;
+                ptr1.next = ptr2.next;
+                ptr2.next = tmp;
+
+            }
+            if ( (ptr1.next == null) && (ptr2.next == null) ){
+                ls3.head = ls1.head;
+            } else if (ptr1.next == null) {
+                ptr1.next = ptr2;
+                ls3.head = ls1.head;
+            } else {
+                ptr2.next = ptr1;
+                ls3.head = ls1.head;
+            }
+
+            return ls3;
+        }
+    }
+
 
     static class Node{
         Object data;//data held within the node
