@@ -250,5 +250,90 @@ public class TestLinkedList {
         assertEquals("values should be equal", expectedOutpu, actualOutput);
 
     }
-}
 
+    @Test
+    public void testMergeLists_bothListLengthsEqual(){
+        LinkedList ls1 = createLinkedList(5);
+        LinkedList ls2 = createLinkedList(5);
+
+        LinkedList ls3 = new LinkedList();
+        ls3.append(1);
+        ls3.append(1);
+        ls3.append(2);
+        ls3.append(2);
+        ls3.append(3);
+        ls3.append(3);
+        ls3.append(4);
+        ls3.append(4);
+        ls3.append(5);
+        ls3.append(5);
+
+
+        LinkedList actualLs3 = new LinkedList();
+        actualLs3.head = LinkedList.mergeLists(ls1, ls2);
+        String expectedOutput = LinkedList.Node.printLinkeList(ls3);
+        String actualOutput = LinkedList.Node.printLinkeList(actualLs3);
+
+        assertEquals("both list should be the same", expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testMergeLists_bothListLengthsNotEqual() {
+        LinkedList ls1 = createLinkedList(5);
+        LinkedList ls2 = createLinkedList(3);
+
+        LinkedList ls3 = new LinkedList();
+        ls3.append(1);
+        ls3.append(1);
+        ls3.append(2);
+        ls3.append(2);
+        ls3.append(3);
+        ls3.append(3);
+        ls3.append(4);
+        ls3.append(5);
+
+
+        LinkedList actualLs3 = new LinkedList();
+        actualLs3.head = LinkedList.mergeLists(ls1, ls2);
+        String expectedOutput = LinkedList.Node.printLinkeList(ls3);
+        String actualOutput = LinkedList.Node.printLinkeList(actualLs3);
+
+        assertEquals("both list should be the same", expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testMergeLists_oneListNull() {
+        LinkedList ls1 = createLinkedList(5);
+        LinkedList ls2 = new LinkedList();
+
+        LinkedList ls3 = new LinkedList();
+        ls3.append(1);
+        ls3.append(2);
+        ls3.append(3);
+        ls3.append(4);
+        ls3.append(5);
+
+        LinkedList actualLs3 = new LinkedList();
+        actualLs3.head = LinkedList.mergeLists(ls1, ls2);
+        String expectedOutput = LinkedList.Node.printLinkeList(ls3);
+        String actualOutput = LinkedList.Node.printLinkeList(actualLs3);
+
+        assertEquals("both list should be the same", expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testMergeLists_bothListsNull() {
+        LinkedList ls1 = new LinkedList();
+        LinkedList ls2 = new LinkedList();
+
+        LinkedList ls3 = new LinkedList();
+        ls3.append(1);
+
+        LinkedList actualLs3 = new LinkedList();
+        actualLs3.head = LinkedList.mergeLists(ls1, ls2);
+        String expectedOutput = "Linked List has no data.";
+        String actualOutput = LinkedList.Node.printLinkeList(actualLs3);
+
+        assertEquals("both list should be the same", expectedOutput, actualOutput);
+    }
+}
