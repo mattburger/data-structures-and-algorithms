@@ -120,35 +120,37 @@ public class LinkedList {
         }
     }
 
-    public static LinkedList mergeLists(LinkedList ls1, LinkedList ls2){
-        if ((ls1 == null) && (ls2 == null)) {
+    public static Node mergeLists(LinkedList ls1, LinkedList ls2){
+        if ( (ls1 == null) && (ls2 == null) ) {
             ls1.head = new Node(1);
-            return ls1;
+            return ls1.head;
         } else if (ls1 == null) {
-            return ls2;
+            return ls2.head;
         } else if (ls2 == null) {
-            return ls1;
+            return ls1.head;
         }else {
             Node ptr1 = ls1.head;
             Node ptr2 = ls2.head;
-            LinkedList ls3 = new LinkedList();
-            while ( (ptr1.next != null) && (ptr2.next != null)) {
+//            LinkedList ls3 = new LinkedList();
+            while ( (ptr1 != null) && (ptr2 != null) ) {
                 Node tmp = ptr1.next;
-                ptr1.next = ptr2.next;
-                ptr2.next = tmp;
-
-            }
-            if ( (ptr1.next == null) && (ptr2.next == null) ){
-                ls3.head = ls1.head;
-            } else if (ptr1.next == null) {
                 ptr1.next = ptr2;
-                ls3.head = ls1.head;
+                ptr1 = ptr1.next;
+                ptr2 = tmp;
+
+            }
+            if ( (ptr1 == null) && (ptr2 == null) ){
+//                ls3.head = ls1.head;
+                return ls1.head;
+            } else if (ptr1 == null) {
+                ptr1 = ptr2;
+//                ls3.head = ls1.head;
             } else {
-                ptr2.next = ptr1;
-                ls3.head = ls1.head;
+                ptr2 = ptr1;
+//                ls3.head = ls1.head;
             }
 
-            return ls3;
+            return ls1.head;
         }
     }
 
