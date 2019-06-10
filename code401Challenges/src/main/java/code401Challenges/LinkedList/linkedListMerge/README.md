@@ -12,3 +12,4 @@ Write a function called mergeLists which takes two linked lists as arguments. Zi
     - Space - Big O(n)
 ## Solution
 <!-- Embedded whiteboard image -->
+![whiteboardImage](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/main/resources/ll_merge.jpg)
