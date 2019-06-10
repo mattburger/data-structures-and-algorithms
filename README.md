@@ -14,6 +14,6 @@
 - [KthNode](https://github.com/mattburger/data-structures-and-algorithms/tree/master/code401Challenges/src/main/java/code401Challenges/LinkedList/kthNode)
 ### Challenge 8
 - [LinkedList Merge](https://github.com/mattburger/data-structures-and-algorithms/tree/master/code401Challenges/src/main/java/code401Challenges/LinkedList/linkedListMerge)
-### Challenge 9 - to be added.
+### Challenge 9 - not added
 ### Challenge 10
 - [Stacks and Queues](https://github.com/mattburger/data-structures-and-algorithms/tree/master/code401Challenges/src/main/java/code401Challenges/stackandqueues)
