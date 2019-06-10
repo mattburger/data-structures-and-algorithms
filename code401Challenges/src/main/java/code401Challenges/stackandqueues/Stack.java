@@ -7,7 +7,7 @@ public class Stack {
         this.top = null;
     }
 
-    public Stack push(Node newNode){
+    public void push(Node newNode){
         if(this.top == null){
             this.top = newNode;
         } else {
@@ -16,7 +16,6 @@ public class Stack {
             this.top.next = tmp;
         }
 
-        return this;
     }
 
     public void pop(){
