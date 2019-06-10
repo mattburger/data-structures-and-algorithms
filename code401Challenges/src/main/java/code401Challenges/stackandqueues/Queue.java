@@ -21,16 +21,19 @@ public class Queue {
         }
     }
 
-    public Node dequeue(){
+    public Object dequeue(){
         if(this.front == null){
             return null;
         }
         Node tmp = this.front;
         this.front = this.front.next;
-        return tmp;
+        return tmp.data;
     }
 
     public Object peek(){
+        if(this.front == null){
+            return null;
+        }
         return this.front.data;
     }
 }

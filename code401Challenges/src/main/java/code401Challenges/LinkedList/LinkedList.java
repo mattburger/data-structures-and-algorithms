@@ -3,12 +3,12 @@ package code401Challenges.LinkedList;
 import static java.lang.Math.abs;
 
 public class LinkedList {
-    Node head = null;
+    public Node head = null;
 //    Node tail;
 
     //code challenge 6 additions
     //add node to end of list
-    protected void append(Object data){
+    public void append(Object data){
         Node newNode = new Node(data);
         newNode.next = null;
         Node lastNode;
@@ -29,7 +29,7 @@ public class LinkedList {
     }
 
     //insertBefore
-    protected void insertBefore(Object value, Object newValue){
+    public void insertBefore(Object value, Object newValue){
         if(this.head == null){
             this.head = new Node(newValue);
             this.head.next = null;
@@ -61,7 +61,7 @@ public class LinkedList {
     }
 
     //insertAfter
-    protected void insertAfter(Object value, Object newValue){
+    public void insertAfter(Object value, Object newValue){
         if(this.head == null){
             this.head = new Node(newValue);
             this.head.next = null;
@@ -155,7 +155,7 @@ public class LinkedList {
     }
 
 
-    static class Node{
+    public static class Node{
         Object data;//data held within the node
         Node next; // reference to next node or null
 //        Node prev;
