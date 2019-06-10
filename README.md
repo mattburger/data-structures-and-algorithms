@@ -11,4 +11,4 @@
 ### Challenge 6
 - [Singly-LinkedList](https://github.com/mattburger/data-structures-and-algorithms/tree/master/code401Challenges/src/main/java/code401Challenges/LinkedList)
 ## Challenge 7
-- [KthNode](https://github.com/mattburger/data-structures-and-algorithms/tree/master/code401Challenges/src/main/java/code401Challenges/LinkedList)
+- [KthNode](https://github.com/mattburger/data-structures-and-algorithms/tree/master/code401Challenges/src/main/java/code401Challenges/LinkedList/kthNode)
