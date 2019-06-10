@@ -1,4 +1,4 @@
-package code401Challenges;
+package code401Challenges.LinkedList;
 
 import static java.lang.Math.abs;
 
