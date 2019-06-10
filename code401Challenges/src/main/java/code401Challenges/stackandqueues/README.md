@@ -19,9 +19,9 @@ Stack and Queue implementation.
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 - Create a Node class to be used by both Stack and Queue.
-Stack
+### Stack
 - Use one pointer 'top' to track the current node on top of the stack. As new nodes are pushed, the 'old top' is made the 'new top's' 'next' value. Reverse for pop.
-Queue
+### Queue
 - Use two pointer to track the front node and the back node. As new nodes are added, the back node faclitates the addition of new nodes and there relationship (next value).
 Big O
 - Stack
@@ -42,3 +42,6 @@ Queue
 - enqueue - adds a new value to the 'back' of the queue.
 - dequeue - removes the front node to the node behind it, and then removes the value.
 - peek - returns the current value of 'front'.
+### Test Code
+[TestStack](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/test/java/code401Challenges/TestStack.java)
+[TestQueue](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/test/java/code401Challenges/TestQueue.java)
