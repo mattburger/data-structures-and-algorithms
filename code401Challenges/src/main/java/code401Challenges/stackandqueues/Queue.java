@@ -2,20 +2,35 @@ package code401Challenges.stackandqueues;
 
 public class Queue {
     private Node front;
+    private Node back;
 
     public Queue(){
         this.front = null;
     }
 
-    public Queue enqueue(Node newNode){
-        return this;
+    public void enqueue(int value){
+        Node newNode = new Node(value);
+
+        if(this.front == null){
+            this.front = newNode;
+            this.back = newNode;
+
+        } else {
+            this.back.next = newNode;
+            this.back = newNode;
+        }
     }
 
-    public Queue Dequeue(){
-        return this;
+    public Node dequeue(){
+        if(this.front == null){
+            return null;
+        }
+        Node tmp = this.front;
+        this.front = this.front.next;
+        return tmp;
     }
 
-    public Node peek(){
-        return this.front;
+    public Object peek(){
+        return this.front.data;
     }
 }
