@@ -9,6 +9,6 @@
 - [BinarySearch](https://github.com/mattburger/data-structures-and-algorithms/tree/master/code401Challenges/binarySearch)
 ### Challenges 4 & 5 not added
 ### Challenge 6
-- [Singly-LinkedList](https://github.com/mattburger/data-structures-and-algorithms/tree/master/code401Challenges/src/main/java/code401Challenges)
+- [Singly-LinkedList](https://github.com/mattburger/data-structures-and-algorithms/tree/master/code401Challenges/src/main/java/code401Challenges/LinkedList)
 ## Challenge 7
 - [KthNode](https://github.com/mattburger/data-structures-and-algorithms/tree/master/code401Challenges/src/main/java/code401Challenges/LinkedList)
