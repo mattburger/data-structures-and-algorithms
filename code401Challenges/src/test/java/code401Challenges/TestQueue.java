@@ -60,9 +60,9 @@ public class TestQueue {
         Queue q = new Queue();
 
         enqueueNodes(q, 2);
-        Node removed = q.dequeue();
+        Object removed = q.dequeue();
 
-        assertEquals("Values should be equal", 2, removed);
+        assertEquals("Values should be equal", 1, removed);
     }
 
     @Test
