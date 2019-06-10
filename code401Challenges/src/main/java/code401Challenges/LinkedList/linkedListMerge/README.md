@@ -13,3 +13,6 @@ Write a function called mergeLists which takes two linked lists as arguments. Zi
 ## Solution
 <!-- Embedded whiteboard image -->
 ![whiteboardImage](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/main/resources/ll_merge.jpg)
+
+## Code
+[LinkedList](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/main/java/code401Challenges/LinkedList/LinkedList.java)

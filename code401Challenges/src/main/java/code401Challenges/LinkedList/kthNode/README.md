@@ -13,5 +13,5 @@ Utilized two pointers set at HEAD within one while loop. The first pointer would
 ![whiteboard](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/main/resources/ll_kth_from_end.jpg)
 
 ## Code
-- [LinkedList](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/main/java/code401Challenges/LinkedList.java)
+- [LinkedList](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/main/java/code401Challenges/LinkedList/LinkedList.java)
 - [TestLinkedList](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/test/java/code401Challenges/TestLinkedList.java)
