@@ -43,5 +43,5 @@ Queue
 - dequeue - removes the front node to the node behind it, and then removes the value.
 - peek - returns the current value of 'front'.
 ### Test Code
-[TestStack](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/test/java/code401Challenges/TestStack.java)
-[TestQueue](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/test/java/code401Challenges/TestQueue.java)
+- [TestStack](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/test/java/code401Challenges/TestStack.java)
+- [TestQueue](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/test/java/code401Challenges/TestQueue.java)
