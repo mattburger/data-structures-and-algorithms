@@ -23,7 +23,7 @@ Stack and Queue implementation.
 - Use one pointer 'top' to track the current node on top of the stack. As new nodes are pushed, the 'old top' is made the 'new top's' 'next' value. Reverse for pop.
 ### Queue
 - Use two pointer to track the front node and the back node. As new nodes are added, the back node faclitates the addition of new nodes and there relationship (next value).
-Big O
+### Big O
 - Stack
     - T - Big O(1)
     - Space - Big O(1)
