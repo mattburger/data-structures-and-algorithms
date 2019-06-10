@@ -1,6 +1,6 @@
 package code401Challenges.stackandqueues;
 
-class Node {
+public class Node {
     protected Object data;
     protected Node next;
 

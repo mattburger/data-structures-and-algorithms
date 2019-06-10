@@ -11,24 +11,28 @@ public class Stack {
         if(this.top == null){
             this.top = newNode;
         } else {
-            this.top.next = top;
+            Node tmp = this.top;
             this.top = newNode;
+            this.top.next = tmp;
         }
 
         return this;
     }
 
-    public Stack pop(){
+    public void pop(){
         if(this.top == null) {
-            throw new IllegalStateException("Cannot not pop from empty Stack!");
+            System.out.println("Stack is empty.");
         } else {
-            this.top = this.top.next;
+            Node tmp = this.top.next;
+            this.top = tmp;
         }
 
-        return this;
     }
 
-    public Node peek(){
-        return this.top;
+    public Object peek(){
+        if(this.top == null){
+            return null;
+        }
+        return this.top.data;
     }
 }
