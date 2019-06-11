@@ -78,4 +78,29 @@ public class TestQueue {
         assertEquals("Values should be equal.", 6, q.peek());
     }
 
+    @Test
+    public void TestDequeue_toEmpty() {
+        Queue q = new Queue();
+
+        enqueueNodes(q, 5);
+        dequeueNodes(q, 5);
+
+        assertNull("Front node should be null after all nodes have been dequeued.",q.getFront());
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void TestDequeue_onEmpty() {
+        Queue q = new Queue();
+        q.dequeue();
+
+        assertNull("dequeue should throw an exception since the queue is empty.",q.getFront());
+    }
+
+    @Test
+    public void TestPeek(){
+        Queue q = new Queue();
+        enqueueNodes(q, 5);
+
+        assertEquals("Peek should return the front value of the queue.", 1, q.peek());
+    }
 }
