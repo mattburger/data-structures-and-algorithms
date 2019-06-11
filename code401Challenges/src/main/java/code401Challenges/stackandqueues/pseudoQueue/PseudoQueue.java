@@ -29,19 +29,26 @@ public class PseudoQueue<T> {
 
     public void enqueue(T value){
 
-        if(isStackEmpty(s2)){
-            s2.push(value);
+        if(isStackEmpty(this.s2)){
+            this.s2.push(value);
         } else {
             while(s2.getTop() != null){
-                s1.push( s2.pop() );
+                s1.push( this.s2.pop() );
             }
-            s1.push(value);
+            this.s1.push(value);
 
             while(s1.getTop() != null){
-                s2.push( s1.pop() );
+                this.s2.push( this.s1.pop() );
             }
         }
     }
 
+    public T dequeue(){
+        if(isStackEmpty(this.s2) ){
+            throw new IllegalStateException("Cannot dequeue from empty queue.");
+        }
+        T tmp = (T)this.s2.pop();
+        return tmp;
+    }
 
 }

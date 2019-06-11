@@ -18,11 +18,11 @@ public class TestPseudoQueue {
         }
     }
 
-//    public void dequeueNodes(PseudoQueue q, int n){
-//        for(int i = 0; i < n; i++){
-//            q.dequeue();
-//        }
-//    }
+    public void dequeueNodes(PseudoQueue q, int n){
+        for(int i = 0; i < n; i++){
+            q.dequeue();
+        }
+    }
 
     @Test
     public void testConstructor() {
@@ -53,5 +53,36 @@ public class TestPseudoQueue {
         enqueueNodes(queue, 5);
 
         assertEquals("Stack2 top should be equal to the expected value.", 1, queue.getStack2().peek());
+    }
+
+    @Test
+    public void testDequeue() {
+        PseudoQueue queue = new PseudoQueue();
+        enqueueNodes(queue,5);
+        queue.dequeue();
+        Object tmp = queue.dequeue();
+
+        assertEquals("Dequeued value should be equal to the expected value.", 2, tmp);
+    }
+
+    @Test
+    public void testDequeue_multiple() {
+        PseudoQueue queue = new PseudoQueue();
+        enqueueNodes(queue,10);
+        dequeueNodes(queue, 5);
+
+        assertEquals("Stack2 top should be equal to the expected value.", 6, queue.getStack2().peek() );
+    }
+
+    @Test
+    public void testEnqueueDequeueFun() {
+        PseudoQueue queue = new PseudoQueue();
+        enqueueNodes(queue,10);
+        dequeueNodes(queue, 5);
+        enqueueNodes(queue, 6);
+        dequeueNodes(queue, 1);
+
+        assertEquals("Stack2 top should be equal to the expected value.", 7, queue.getStack2().peek() );
+
     }
 }
