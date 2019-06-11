@@ -17,3 +17,5 @@
 ### Challenge 9 - not added
 ### Challenge 10
 - [Stacks and Queues](https://github.com/mattburger/data-structures-and-algorithms/tree/master/code401Challenges/src/main/java/code401Challenges/stackandqueues)
+### Challenge 11
+- [QueueWithStacks](https://github.com/mattburger/data-structures-and-algorithms/tree/master/code401Challenges/src/main/java/code401Challenges/stackandqueues/pseudoQueue)
