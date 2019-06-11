@@ -24,3 +24,4 @@ Implement a queue using two stacks.
 
 ## Solution
 <!-- Embedded whiteboard image -->
+![whiteboardimg](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/main/resources/queue_with_stacks.jpg)
