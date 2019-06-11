@@ -1,7 +1,5 @@
-package code401Challenges;
+package code401Challenges.stackandqueues;
 
-import code401Challenges.stackandqueues.Node;
-import code401Challenges.stackandqueues.Stack;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -9,17 +7,24 @@ import static org.junit.Assert.*;
 public class TestStack {
     public void addNodes(Stack s, int n){
         for(int i = 1; i <= n; i++){
-            s.push(new Node(i));
+            s.push(i);
         }
     }
     public void popNodes(Stack s, int n){
-        for(int i = 0; i <= n; i++){
+        for(int i = 0; i < n; ++i){
             s.pop();
         }
     }
 
     @Test
-    public void TestConstructor(){
+    public void TestConstructor() {
+        Stack s = new Stack();
+
+        assertNull("Should be null. ", s.getTop());
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void TestConstructor_fail(){
         Stack s = new Stack();
 
         assertNull("Should be null. ", s.peek());
@@ -28,8 +33,7 @@ public class TestStack {
     @Test
     public void TestPushAndPeek(){
         Stack s = new Stack();
-        Node n = new Node(1);
-        s.push(n);
+        s.push(1);
 
         assertEquals("Values should be equal. ", 1, s.peek());
     }
@@ -53,6 +57,16 @@ public class TestStack {
 
     @Test
     public void TestPopToEmpty(){
+        Stack s = new Stack();
+        addNodes(s, 5);
+        popNodes(s,5);
+
+
+        assertEquals("Values should be equal. ", null, s.getTop());
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void TestPopToEmpty_fail(){
         Stack s = new Stack();
         addNodes(s, 5);
         popNodes(s,5);

@@ -1,13 +1,14 @@
 package code401Challenges.stackandqueues;
 
-public class Stack {
+public class Stack<T> {
     private Node top;
 
     public Stack(){
         this.top = null;
     }
 
-    public void push(Node newNode){
+    public void push(T value) {
+        Node newNode = new Node(value);
         if(this.top == null){
             this.top = newNode;
         } else {
@@ -18,20 +19,26 @@ public class Stack {
 
     }
 
-    public void pop(){
+    public T pop(){
         if(this.top == null) {
-            System.out.println("Stack is empty.");
+            throw new IllegalStateException("Cannot pop from empty stack.");
         } else {
-            Node tmp = this.top.next;
-            this.top = tmp;
+            Node tmp = this.top;
+            this.top = tmp.next;
+
+            return (T)tmp.data;
         }
 
     }
 
-    public Object peek(){
+    public T peek(){
         if(this.top == null){
-            return null;
+            throw new IllegalStateException("Cannot peek within empty stack.");
         }
-        return this.top.data;
+        return (T)this.top.data;
+    }
+
+    public T getTop(){
+        return (T)this.top;
     }
 }

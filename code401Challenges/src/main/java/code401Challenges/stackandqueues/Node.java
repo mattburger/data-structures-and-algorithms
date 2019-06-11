@@ -1,10 +1,10 @@
 package code401Challenges.stackandqueues;
 
-public class Node {
-    protected Object data;
+public class Node<T> {
+    protected T data;
     protected Node next;
 
-    public Node(Object data){
+    public Node(T data){
         this.data = data;
         this.next = null;
     }
