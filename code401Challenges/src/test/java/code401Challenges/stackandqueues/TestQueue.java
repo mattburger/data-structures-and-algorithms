@@ -1,7 +1,5 @@
-package code401Challenges;
+package code401Challenges.stackandqueues;
 
-import code401Challenges.stackandqueues.Node;
-import code401Challenges.stackandqueues.Queue;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -19,9 +17,14 @@ public class TestQueue {
             q.dequeue();
         }
     }
-
     @Test
     public void TestConstructor(){
+        Queue q = new Queue();
+
+        assertNull("Should be null. ", q.getFront());
+    }
+    @Test(expected = IllegalStateException.class)
+    public void TestConstructor_fail(){
         Queue q = new Queue();
 
         assertNull("Should be null. ", q.peek());
@@ -45,7 +48,7 @@ public class TestQueue {
         assertEquals("Values should be equal.", 1, q.peek());
     }
 
-    @Test
+    @Test(expected = IllegalStateException.class)
     public void TestDequeue(){
         Queue q = new Queue();
 
