@@ -6,6 +6,8 @@ public class Animal {
     protected String gender;
     protected String color;
     protected int ageInYears;
+    protected boolean bark;
+    protected boolean meow;
 
     public Animal(String name, String gender, String color, int ageInYears){
         this.name = name;
@@ -28,5 +30,13 @@ public class Animal {
 
     public int getAgeInYears() {
         return ageInYears;
+    }
+
+    public boolean doesMeow() {
+        return this.meow;
+    }
+
+    public boolean doesBark() {
+        return this.bark;
     }
 }

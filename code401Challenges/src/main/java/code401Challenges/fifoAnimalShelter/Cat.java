@@ -1,15 +1,13 @@
 package code401Challenges.fifoAnimalShelter;
 
 public class Cat extends Animal {
-    boolean meow;
 
     public Cat(String name, String gender, String color, int ageInYears){
         super(name, gender, color, ageInYears);
         this.meow = true;
+        setMeow(true);
     }
-
-    public boolean doesMeow() {
-        return this.meow;
+    public void setMeow(boolean flag) {
+        this.meow = flag;
     }
-
 }
