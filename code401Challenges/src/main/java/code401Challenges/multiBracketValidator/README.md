@@ -16,5 +16,5 @@
 
 ## Solution
 <!-- Embedded whiteboard image -->
-
+![whiteboard](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/main/resources/multi_bracket_validation.jpeg)
 
