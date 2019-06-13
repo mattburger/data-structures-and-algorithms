@@ -8,13 +8,16 @@ public class TestBracketValidator {
 
     @Test
     public void testBracketValidtor() {
-        String in = "{ { [ ( ) ( ) ] } }";
-        BracketValidator bv = new BracketValidator(in);
-        boolean expectedOutput = true;
-        boolean actualOutput = bv.isBalanced();
 
-        assertEquals("isBalanced should return true.", expectedOutput, actualOutput);
-
+        assertTrue("isBalanced should return true.", new BracketValidator("[]").isBalanced());
+        assertTrue("isBalanced should return true.", new BracketValidator("([{}])").isBalanced());
+//        assertTrue("isBalanced should return true.", new BracketValidator("{{{[[[((({}[](){})))]]]}}}").isBalanced());
+        assertTrue("isBalanced should return true.", new BracketValidator("").isBalanced());
+//        assertFalse("isBalanced should return false.", new BracketValidator("      ").isBalanced());
+        assertFalse("isBalanced should return false.", new BracketValidator("{{{{{{{{{{{{{{").isBalanced());
+        assertFalse("isBalanced should return false.", new BracketValidator("}}}}}}}}}}}}}}}").isBalanced());
+        assertFalse("isBalanced should return false.", new BracketValidator("}").isBalanced());
+        assertFalse("isBalanced should return false.", new BracketValidator("{").isBalanced());
 
     }
 }

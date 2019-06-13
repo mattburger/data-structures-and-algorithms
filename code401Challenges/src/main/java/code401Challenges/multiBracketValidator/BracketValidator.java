@@ -20,41 +20,40 @@ public class BracketValidator {
         for(int i = 0; i < this.input.length(); i++) {
             tmp = this.input.charAt(i);
             if( (tmp == '{') || (tmp == '(') || (tmp == '[') ) {
-                System.out.println("Open bracket: " + tmp);
                 this.openBrackets.push(tmp);
             }
             if( (tmp == '}') || (tmp == ')') || (tmp == ']') ) {
-                System.out.println("Closed bracket: " + tmp);
                 this.tmpBrackets.push(tmp);
             }
         }
     }
 
     private void flip() {
-        while(tmpBrackets.getTop() != null) {
-            closedBrackets.push(tmpBrackets.pop());
+        if(tmpBrackets.getTop() != null) {
+            while (tmpBrackets.getTop() != null) {
+                closedBrackets.push(tmpBrackets.pop());
+            }
         }
-        System.out.println("peeking" + closedBrackets.peek());
 
     }
-    private boolean parenBalance(String a, String b) {
-        if(  a.equals('(') && b.equals(')') ) {
+    private boolean parenBalance(char a, char b) {
+        if(  a == '(' && b == ')') {
             return true;
         } else {
             return false;
         }
     }
 
-    private boolean curlyBalance(String a, String b) {
-        if(  a.equals('{') && b.equals('}') ) {
+    private boolean curlyBalance(char a, char b) {
+        if(  a == '{' && b == '}') {
             return true;
         } else {
             return false;
         }
     }
 
-    private boolean squareBalance(String a, String b) {
-        if( a.equals('[') && b.equals(']') ) {
+    private boolean squareBalance(char a, char b) {
+        if(  a == '[' && b == ']') {
             return true;
         } else {
             return false;
@@ -62,18 +61,37 @@ public class BracketValidator {
     }
 
     public boolean isBalanced() {
-        populateStacks();
-        flip(); //flip the stack to 'match' (if balanced) the openBrackets stack
-        while(this.openBrackets.getTop() != null && this.closedBrackets.getTop() != null) {
-            String open = this.openBrackets.pop().toString();
-            String close = this.closedBrackets.pop().toString();
-            if(parenBalance(open, close) || curlyBalance(open, close) || squareBalance(open, close)){
-                System.out.println("match");
 
-            } else {
-                System.out.println(("not match"));
-            }
+        if(this.openBrackets.getTop() == null && this.closedBrackets.getTop() == null ) {
+            return true;
+
+        } else if(this.openBrackets.getTop() == null && this.closedBrackets.getTop() != null ){
+            return false;
+
+        } else if(this.openBrackets.getTop() != null && this.closedBrackets.getTop() == null ){
+            return false;
         }
-        return true;
+
+        else if(this.input.length() < 1) {
+            return true;
+        }
+
+        else {
+            populateStacks();
+            flip(); //flip the stack to 'match' (if balanced) the openBrackets stack
+            while (this.openBrackets.getTop() != null && this.closedBrackets.getTop() != null) {
+
+                char open = (char) this.openBrackets.pop();
+                char close = (char) this.closedBrackets.pop();
+
+                if (parenBalance(open, close) || curlyBalance(open, close) || squareBalance(open, close)) {
+                    System.out.println("yay");
+                } else {
+                    return false;
+                }
+
+            }
+            return true;
+        }
     }
 }
