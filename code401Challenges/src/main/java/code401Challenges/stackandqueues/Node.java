@@ -1,7 +1,7 @@
 package code401Challenges.stackandqueues;
 
 public class Node<T> {
-    protected T data;
+    public T data;
     protected Node next;
 
     public Node(T data){
