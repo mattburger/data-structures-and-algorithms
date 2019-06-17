@@ -16,6 +16,7 @@ public class BinaryTree {
     }
 
     //private methods that preform recursive traversals
+    //thanks to geeksforgeeks for reference
     private void preOrder(TreeNode n) {
 
         if(n == null) {
