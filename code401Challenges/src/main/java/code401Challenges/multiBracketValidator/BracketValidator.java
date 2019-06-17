@@ -10,32 +10,10 @@ public class BracketValidator {
 
     public BracketValidator(String input) {
         this.openBrackets = new Stack();
-        this.tmpBrackets = new Stack();
-        this.closedBrackets = new Stack();
+
         this.input = input;
     }
 
-    private void populateStacks() {
-        char tmp;//hold character of string
-        for(int i = 0; i < this.input.length(); i++) {
-            tmp = this.input.charAt(i);
-            if( (tmp == '{') || (tmp == '(') || (tmp == '[') ) {
-                this.openBrackets.push(tmp);
-            }
-            if( (tmp == '}') || (tmp == ')') || (tmp == ']') ) {
-                this.tmpBrackets.push(tmp);
-            }
-        }
-    }
-
-    private void flip() {
-        if(tmpBrackets.getTop() != null) {
-            while (tmpBrackets.getTop() != null) {
-                closedBrackets.push(tmpBrackets.pop());
-            }
-        }
-
-    }
     private boolean parenBalance(char a, char b) {
         if(  a == '(' && b == ')') {
             return true;
@@ -62,36 +40,27 @@ public class BracketValidator {
 
     public boolean isBalanced() {
 
-        if(this.openBrackets.getTop() == null && this.closedBrackets.getTop() == null ) {
-            return true;
-
-        } else if(this.openBrackets.getTop() == null && this.closedBrackets.getTop() != null ){
-            return false;
-
-        } else if(this.openBrackets.getTop() != null && this.closedBrackets.getTop() == null ){
-            return false;
-        }
-
-        else if(this.input.length() < 1) {
+        if(this.input.equals("")) {
             return true;
         }
-
-        else {
-            populateStacks();
-            flip(); //flip the stack to 'match' (if balanced) the openBrackets stack
-            while (this.openBrackets.getTop() != null && this.closedBrackets.getTop() != null) {
-
-                char open = (char) this.openBrackets.pop();
-                char close = (char) this.closedBrackets.pop();
-
-                if (parenBalance(open, close) || curlyBalance(open, close) || squareBalance(open, close)) {
-                    System.out.println("yay");
-                } else {
+        char tmp;//hold character of string
+        for(int i = 0; i < this.input.length(); i++) {
+            tmp = this.input.charAt(i);
+            if( (tmp == '{') || (tmp == '(') || (tmp == '[') ) {
+                this.openBrackets.push(tmp);
+            }
+            if( (tmp == '}') || (tmp == ')') || (tmp == ']') ) {
+                if(this.openBrackets.getTop() == null) {
                     return false;
                 }
-
+                if(!parenBalance(tmp, (char)this.openBrackets.peek() ) ||
+                        !curlyBalance(tmp, (char)this.openBrackets.peek()) ||
+                        !squareBalance(tmp, (char)this.openBrackets.peek())){
+                    System.out.println("Peek: " + (char)this.openBrackets.peek() );
+                    return false;
+                }
             }
-            return true;
         }
+        return true;
     }
 }
