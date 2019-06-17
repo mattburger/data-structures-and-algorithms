@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class TestBinaryTree {
+public class TestBinaryTree<T> {
 
     @Test
     public void testBinaryTree() {
@@ -50,8 +50,8 @@ public class TestBinaryTree {
         bt.root.right.left = new TreeNode(6);
         bt.root.right.right = new TreeNode(7);
 
-        Integer[] expectedOut = new Integer[]{1, 2, 4, 5, 3, 6, 7};
-        Integer[] actualOut = bt.preOrderTraversal();
+        T[] expectedOut = (T[])new Object[]{1, 2, 4, 5, 3, 6, 7};
+        T[] actualOut = (T[])bt.preOrderTraversal();
 
         assertArrayEquals("preOrderTraversal should output an Integer[] of the preorder traversal sequence.",
                 expectedOut, actualOut);
@@ -62,8 +62,8 @@ public class TestBinaryTree {
     public void testPreOrderTraversal_empty() {
         BinaryTree bt = new BinaryTree();
 
-        Integer[] expectedOutput = new Integer[0];
-        Integer[] actualOutput = bt.preOrderTraversal();
+        T[] expectedOutput = (T[])new Object[0];
+        T[] actualOutput = (T[])bt.preOrderTraversal();
 
         assertArrayEquals("Empty binary tree should return an empty array.", expectedOutput, actualOutput);
     }
@@ -79,8 +79,8 @@ public class TestBinaryTree {
         bt.root.right.left = new TreeNode(6);
         bt.root.right.right = new TreeNode(7);
 
-        Integer[] expectedOut = new Integer[]{4, 2, 5, 1, 6, 3, 7};
-        Integer[] actualOut = bt.inOrderTraversal();
+        T[] expectedOut = (T[])new Object[]{4, 2, 5, 1, 6, 3, 7};
+        T[] actualOut = (T[])bt.inOrderTraversal();
 
         assertArrayEquals("inOrderTraversal should output an Integer[] of the preorder traversal sequence.",
                 expectedOut, actualOut);
@@ -91,8 +91,8 @@ public class TestBinaryTree {
     public void testInOrderTraversal_empty() {
         BinaryTree bt = new BinaryTree();
 
-        Integer[] expectedOutput = new Integer[0];
-        Integer[] actualOutput = bt.inOrderTraversal();
+        T[] expectedOutput = (T[])new Object[0];
+        T[] actualOutput = (T[])bt.inOrderTraversal();
 
         assertArrayEquals("Empty binary tree should return an empty array.", expectedOutput, actualOutput);
     }
@@ -108,8 +108,8 @@ public class TestBinaryTree {
         bt.root.right.left = new TreeNode(6);
         bt.root.right.right = new TreeNode(7);
 
-        Integer[] expectedOut = new Integer[]{4, 5, 2, 6, 7, 3, 1};
-        Integer[] actualOut = bt.postOrderTraversal();
+        T[] expectedOut = (T[]) new Object[]{4, 5, 2, 6, 7, 3, 1};
+        T[] actualOut = (T[]) bt.postOrderTraversal();
 
         assertArrayEquals("postOrderTraversal should output an Integer[] of the preorder traversal sequence.",
                 expectedOut, actualOut);
@@ -120,8 +120,8 @@ public class TestBinaryTree {
     public void testPostOrderTraversal_empty() {
         BinaryTree bt = new BinaryTree();
 
-        Integer[] expectedOutput = new Integer[0];
-        Integer[] actualOutput = bt.postOrderTraversal();
+        T[] expectedOutput = (T[]) new Object[0];
+        T[] actualOutput = (T[]) bt.postOrderTraversal();
 
         assertArrayEquals("Empty binary tree should return an empty array.", expectedOutput, actualOutput);
     }

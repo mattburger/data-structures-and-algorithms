@@ -2,22 +2,22 @@ package code401Challenges.tree;
 
 
 
-public class BinarySearchTree extends BinaryTree {
+public class BinarySearchTree<T> extends BinaryTree {
     public BinarySearchTree() {
         super();
     }
 
     //Thanks to geeksforgeeks
-    private TreeNode addNode(TreeNode n, Integer value) {
+    private TreeNode addNode(TreeNode n, T value) {
 
         if(n == null) {
             n = new TreeNode(value);
             return n;
         }
 
-        if(n.data < value) {
+        if((Integer)n.data < (Integer)value) {
             n.right = addNode(n.right, value);
-        } else if(n.data > value){
+        } else if((Integer)n.data > (Integer)value){
             n.left = addNode(n.left, value);
         }
 
@@ -25,7 +25,7 @@ public class BinarySearchTree extends BinaryTree {
     }
 
 
-    private boolean contains(TreeNode n, Integer value) {
+    private boolean contains(TreeNode n, T value) {
         boolean flag = false;
         if(n == null) {
             return flag;
@@ -36,7 +36,7 @@ public class BinarySearchTree extends BinaryTree {
             return flag;
         }
 
-        if(value < n.data) {
+        if((Integer)value < (Integer)n.data) {
             return contains(n.left, value);
         }
 
@@ -45,16 +45,16 @@ public class BinarySearchTree extends BinaryTree {
 
     }
 
-    public boolean contains(Integer value) {
+    public boolean contains(T value) {
         return contains(this.root, value);
     }
 
-    public Integer[] add(Integer value) {
-        Integer[] output;
+    public T[] add(T value) {
+        T[] output;
 
         this.root = addNode(this.root, value);
 
-        output = inOrderTraversal();
+        output = (T[])inOrderTraversal();
 
         return output;
     }

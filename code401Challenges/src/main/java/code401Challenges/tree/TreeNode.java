@@ -1,13 +1,14 @@
 package code401Challenges.tree;
 
-public class TreeNode {
-    public Integer data;
+public class TreeNode<T> {
+    public T data;
     public TreeNode left;
     public TreeNode right;
 
-    public TreeNode(Integer data){
+    public TreeNode(T data){
         this.data = data;
         this.left = null;
         this.right = null;
     }
+
 }
