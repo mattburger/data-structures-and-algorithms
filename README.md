@@ -21,3 +21,5 @@
 - [QueueWithStacks](https://github.com/mattburger/data-structures-and-algorithms/tree/master/code401Challenges/src/main/java/code401Challenges/stackandqueues/pseudoQueue)
 ### Challenge 12
 - [FIFOAnimalShelter](https://github.com/mattburger/data-structures-and-algorithms/tree/master/code401Challenges/src/main/java/code401Challenges/fifoAnimalShelter)
+### Challenge 13
+- [BinaryTree](https://github.com/mattburger/data-structures-and-algorithms/tree/master/code401Challenges/src/main/java/code401Challenges/tree)
