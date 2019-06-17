@@ -10,12 +10,14 @@ public class BinaryTree {
 
     public BinaryTree() {
         this.root = null;
+        this.preOrd = new ArrayList<>();
+        this.inOrd = new ArrayList<>();
+        this.postOrd = new ArrayList<>();
     }
 
     //private methods that preform recursive traversals
     private void preOrder(TreeNode n) {
 
-        preOrd = new ArrayList<>();
         if(n == null) {
             return;
         }
@@ -28,7 +30,6 @@ public class BinaryTree {
     }
 
     private void inOrder(TreeNode n) {
-        inOrd = new ArrayList<>();
 
         if(n == null) {
             return;
@@ -42,7 +43,6 @@ public class BinaryTree {
     }
 
     private void postOrder(TreeNode n) {
-        postOrd = new ArrayList<>();
 
         if(n == null) {
             return;
@@ -59,6 +59,8 @@ public class BinaryTree {
     //user friendly wrapper methods
     public Integer[] preOrderTraversal() {
         Integer[] output;
+        this.preOrd = new ArrayList<>();
+
         preOrder(this.root);
 
         output = new Integer[this.preOrd.size()];
@@ -70,6 +72,8 @@ public class BinaryTree {
 
     public Integer[] inOrderTraversal() {
         Integer[] output;
+        this.inOrd = new ArrayList<>();
+
         inOrder(this.root);
 
         output = new Integer[this.inOrd.size()];
@@ -81,6 +85,8 @@ public class BinaryTree {
 
     public Integer[] postOrderTraversal() {
         Integer[] output;
+        this.postOrd = new ArrayList<>();
+
         postOrder(this.root);
 
         output = new Integer[this.postOrd.size()];
