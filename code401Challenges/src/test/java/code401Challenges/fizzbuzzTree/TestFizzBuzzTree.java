@@ -11,17 +11,16 @@ public class TestFizzBuzzTree<T> {
         FizzBuzzTree fbt = new FizzBuzzTree();
         BinaryTree output;
 
-        fbt.root = new TreeNode(3);
         fbt.root = new TreeNode(7);
         fbt.root.left = new TreeNode(10);
         fbt.root.right = new TreeNode(15);
         fbt.root.left.left = new TreeNode(20);
         fbt.root.left.right = new TreeNode(45);
         fbt.root.right.left = new TreeNode(51);
-        fbt.root.right.right = new TreeNode(52);
-
+        fbt.root.right.right = new TreeNode(71);
+        //preorder = 7, 10, 20, 45, 15, 51, 63 = 7, Buzz, Buzz, FizzBuzz, FizzBuzz, Fizz, 71,
         output = fbt.fizzBuzzTree();
-        T[] expectedOutput = (T[])new Object[]{"Fizz", 7, "FizzBuzz", "Buzz", "FizzBuzz", 51, 52};
+        T[] expectedOutput = (T[])new Object[]{7, "Buzz", "Buzz", "FizzBuzz", "FizzBuzz", "Fizz", 71};
         T[] actualOutput = (T[]) output.preOrderTraversal();
 
 
