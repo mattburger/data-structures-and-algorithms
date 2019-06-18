@@ -3,7 +3,7 @@ package code401Challenges.tree;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class TestBinarySearchTree {
+public class TestBinarySearchTree<T> {
 
     @Test
     public void testAdd() {
@@ -24,8 +24,8 @@ public class TestBinarySearchTree {
         for(int i = 1; i <= 10; i++) {
             bst.add(i);
         }
-        Integer[] expected = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        Integer[] actual = bst.inOrderTraversal();
+        T[] expected = (T[])new Object[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        T[] actual = (T[]) bst.inOrderTraversal();
 
 
         assertArrayEquals("Binary tree left and right should have a value when added to the tree, or point to null.",

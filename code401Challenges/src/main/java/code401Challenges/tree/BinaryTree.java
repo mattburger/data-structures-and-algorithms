@@ -1,12 +1,14 @@
 package code401Challenges.tree;
 
+import java.lang.reflect.Array;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class BinaryTree {
-    TreeNode root;
-    private ArrayList<Integer> preOrd;
-    private ArrayList<Integer> inOrd;
-    private ArrayList<Integer> postOrd;
+public class BinaryTree<T> {
+    public TreeNode root;
+    private ArrayList<T> preOrd;
+    private ArrayList<T> inOrd;
+    private ArrayList<T> postOrd;
 
     public BinaryTree() {
         this.root = null;
@@ -22,7 +24,7 @@ public class BinaryTree {
         if(n == null) {
             return;
         }
-        this.preOrd.add(n.data);
+        this.preOrd.add((T)n.data);
 
         preOrder(n.left);
 
@@ -38,7 +40,7 @@ public class BinaryTree {
 
         inOrder(n.left);
 
-        inOrd.add(n.data);
+        inOrd.add((T)n.data);
 
         inOrder(n.right);
     }
@@ -53,47 +55,48 @@ public class BinaryTree {
 
         postOrder(n.right);
 
-        postOrd.add(n.data);
+        postOrd.add((T)n.data);
 
     }
 
     //user friendly wrapper methods
-    public Integer[] preOrderTraversal() {
-        Integer[] output;
+    public T[] preOrderTraversal() {
+        T[] output;
         this.preOrd = new ArrayList<>();
 
         preOrder(this.root);
 
-        output = new Integer[this.preOrd.size()];
+        output = (T[])new Object[this.preOrd.size()];
         output = this.preOrd.toArray(output);
 
         return output;
 
     }
 
-    public Integer[] inOrderTraversal() {
-        Integer[] output;
+    public T[] inOrderTraversal() {
+        T[] output;
         this.inOrd = new ArrayList<>();
 
         inOrder(this.root);
 
-        output = new Integer[this.inOrd.size()];
+        output = (T[])new Object[this.inOrd.size()];
         output = this.inOrd.toArray(output);
 
         return output;
 
     }
 
-    public Integer[] postOrderTraversal() {
-        Integer[] output;
+    public T[] postOrderTraversal() {
+        T[] output;
         this.postOrd = new ArrayList<>();
 
         postOrder(this.root);
 
-        output = new Integer[this.postOrd.size()];
+        output = (T[])new Object[this.postOrd.size()];
         output = this.postOrd.toArray(output);
 
         return output;
 
     }
+
 }
