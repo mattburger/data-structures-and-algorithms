@@ -1,5 +1,7 @@
 package code401Challenges.tree;
 
+import code401Challenges.stackandqueues.Queue;
+
 import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -57,6 +59,11 @@ public class BinaryTree<T> {
 
         postOrd.add((T)n.data);
 
+    }
+
+    public void breadthFirstTraversal(TreeNode n) {
+        Queue q = new Queue();
+        q.enqueue(this.root);
     }
 
     //user friendly wrapper methods
