@@ -1,6 +1,5 @@
 package code401Challenges.tree;
 
-import com.sun.source.tree.Tree;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -124,5 +123,33 @@ public class TestBinaryTree<T> {
         T[] actualOutput = (T[]) bt.postOrderTraversal();
 
         assertArrayEquals("Empty binary tree should return an empty array.", expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testBreadthFirstTraversal() {
+        BinaryTree bt = new BinaryTree();
+
+        bt.root = new TreeNode(1);
+        bt.root.left = new TreeNode(2);
+        bt.root.right = new TreeNode(3);
+        bt.root.left.left = new TreeNode(4);
+        bt.root.left.right = new TreeNode(5);
+        bt.root.right.left = new TreeNode(6);
+        bt.root.right.right = new TreeNode(7);
+
+        String actual = bt.breadthFirstTraversal(bt.root);
+        String expected = "1234567";
+
+        assertEquals("Breadth first should return a string of the node values by level", expected, actual);
+    }
+
+    @Test
+    public void testBreadthFirstTraversal_empty() {
+        BinaryTree bt = new BinaryTree();
+
+        String actual = bt.breadthFirstTraversal(bt.root);
+        String expected = "Tree is empty!";
+
+        assertEquals("Breadth first should return a string of the node values by level", expected, actual);
     }
 }

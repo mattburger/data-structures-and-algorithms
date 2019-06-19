@@ -2,8 +2,6 @@ package code401Challenges.tree;
 
 import code401Challenges.stackandqueues.Queue;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class BinaryTree<T> {
@@ -61,9 +59,26 @@ public class BinaryTree<T> {
 
     }
 
-    public void breadthFirstTraversal(TreeNode n) {
-        Queue q = new Queue();
+    public String breadthFirstTraversal(TreeNode n) {
+        String out = "";
+        if(this.root == null) {
+            System.out.println("Tree is empty!");
+            return "Tree is empty!";
+        }
+        Queue<TreeNode> q = new Queue();
         q.enqueue(this.root);
+        while( q.getFront() != null ) {
+            TreeNode current = q.dequeue();
+            System.out.println(current.data);
+            out = out + current.data;
+            if(current.left != null) {
+                q.enqueue(current.left);
+            }
+            if(current.right != null) {
+                q.enqueue(current.right);
+            }
+        }
+        return out;
     }
 
     //user friendly wrapper methods
