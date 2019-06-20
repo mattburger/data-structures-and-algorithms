@@ -152,4 +152,50 @@ public class TestBinaryTree<T> {
 
         assertEquals("Breadth first should return a string of the node values by level", expected, actual);
     }
+
+    @Test
+    public void testFindMaximumValue() {
+        BinaryTree bt = new BinaryTree();
+        bt.root = new TreeNode(1);
+        bt.root.left = new TreeNode(2);
+        bt.root.right = new TreeNode(3);
+        bt.root.left.left = new TreeNode(4);
+        bt.root.left.right = new TreeNode(5);
+        bt.root.right.left = new TreeNode(6);
+        bt.root.right.right = new TreeNode(7);
+
+        Integer expected = 7;
+        Integer actual = bt.findMaximumValue();
+
+        assertEquals("findMaximumValue should return the maximum Integer in the tree.", expected, actual);
+    }
+
+    @Test
+    public void testFindMaximumValue_emptyTree() {
+        BinaryTree bt = new BinaryTree();
+
+        Integer expected = Integer.MIN_VALUE;
+        Integer actual = bt.findMaximumValue();
+
+        assertEquals("findMaximumValue will return the smallest Integer in java if the tree is empty.",
+                expected, actual);
+    }
+
+    @Test(expected = Exception.class)
+    public void testFindMaximumValue_char() {
+        BinaryTree bt = new BinaryTree();
+        bt.root = new TreeNode('A');
+        bt.root.left = new TreeNode('B');
+        bt.root.right = new TreeNode('C');
+        bt.root.left.left = new TreeNode('D');
+        bt.root.left.right = new TreeNode('E');
+        bt.root.right.left = new TreeNode('F');
+        bt.root.right.right = new TreeNode('G');
+
+        Character expected = 'G';
+        T actual = (T)bt.findMaximumValue();
+
+        assertEquals("findMaximumValue should return the maximum Integer in the tree.", expected, actual);
+    }
+
 }
