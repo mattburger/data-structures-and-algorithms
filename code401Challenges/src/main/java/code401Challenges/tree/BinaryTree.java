@@ -6,12 +6,14 @@ import java.util.ArrayList;
 
 public class BinaryTree<T> {
     public TreeNode root;
+    private Integer maxValue;
     private ArrayList<T> preOrd;
     private ArrayList<T> inOrd;
     private ArrayList<T> postOrd;
 
     public BinaryTree() {
         this.root = null;
+        this.maxValue = Integer.MIN_VALUE;
         this.preOrd = new ArrayList<>();
         this.inOrd = new ArrayList<>();
         this.postOrd = new ArrayList<>();
@@ -23,6 +25,10 @@ public class BinaryTree<T> {
 
         if(n == null) {
             return;
+        }
+        //assuming input is an Integer or a char. App will break otherwise
+        if(this.maxValue < (Integer)n.data) {
+            this.maxValue = (Integer)n.data;
         }
         this.preOrd.add((T)n.data);
 
@@ -119,6 +125,11 @@ public class BinaryTree<T> {
 
         return output;
 
+    }
+
+    public Integer findMaximumValue() {
+        preOrderTraversal();
+        return this.maxValue;
     }
 
 }
