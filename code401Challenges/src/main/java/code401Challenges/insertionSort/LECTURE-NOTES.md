@@ -20,7 +20,7 @@ Sorting algorithm that sorts the array in place.
   - good to use when dealing with a small dataset
 
 ## Diagram
-- ![whiteboard]()
+- ![whiteboard](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/main/resources/insertion_sort.jpg)
 
 ## Algorithm
 - for loop through the length of the array using index i
