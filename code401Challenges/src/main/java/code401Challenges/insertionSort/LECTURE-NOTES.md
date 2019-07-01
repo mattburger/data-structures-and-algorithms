@@ -48,6 +48,9 @@ InsertionSort(int[] arr)
         
       arr[j + 1] <-- temp
 ```
+## Code
+- [insertion sort](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/main/java/code401Challenges/insertionSort/InsertionSort.java)
+- [test code] (https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/test/java/code401Challenges/insertionSort/TestInsertionSort.java)
 ## Readings and References
 ### Watch
 - [geek for geeks](https://www.youtube.com/watch?v=OGzPmgsI-pQ)
