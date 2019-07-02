@@ -8,8 +8,9 @@ public class MergeSort {
     }
 
 
-    public void mergeSortMethod(int[] inputArr) {
+    public int[] mergeSortMethod(int[] inputArr) {
         int len = inputArr.length;
+        int[] outputArr = new int[len];
 
         if (len > 1) {
             int mid = len / 2;
@@ -19,17 +20,18 @@ public class MergeSort {
             for (int i = 0; i < mid; i++) {
                 firstHalf[i] = inputArr[i];
             }
-            for (int i = mid; i < len - 1; i++) {
+            for (int i = mid; i < len; i++) {
                 secondHalf[i - mid] = inputArr[i];
             }
 
             mergeSortMethod(firstHalf);
             mergeSortMethod(secondHalf);
-            this.mergeSortArr = merge(firstHalf, secondHalf, new int[len]);
+            merge(firstHalf, secondHalf, outputArr);
         }
+        return outputArr;
     }
 
-    private int[] merge(int[] firstHalf, int[] secondHalf, int[] newSortedArr) {
+    private void merge(int[] firstHalf, int[] secondHalf, int[] newSortedArr) {
         int i = 0, j = 0, k = 0;
 
         while (i < firstHalf.length && j < secondHalf.length) {
@@ -60,12 +62,15 @@ public class MergeSort {
             }
         }
 
-        return newSortedArr;
+        //return newSortedArr;
     }
 
     public int[] mergeUtility() {
-        mergeSortMethod(this.mergeSortArr);
+        this.mergeSortArr = mergeSortMethod(this.mergeSortArr);
 
+        for(int i = 0; i < this.mergeSortArr.length; i++) {
+            System.out.println(this.mergeSortArr[i]);
+        }
         return this.mergeSortArr;
     }
 }
