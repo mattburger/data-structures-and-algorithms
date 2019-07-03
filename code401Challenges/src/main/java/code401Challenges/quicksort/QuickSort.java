@@ -20,18 +20,18 @@ public class QuickSort {
     }
 
     private int partition(int[] inputArr, int left, int right) {
-        int pivot = right;
+        int pivot = inputArr[right];
         int low = left - 1;
 
         for(int i = left; i < right; i++) {
-            if(inputArr[i] == pivot) {
+            if(inputArr[i] <= pivot) {
                 low++;
                 swapVal(inputArr, i, low);
             }
         }
         swapVal(inputArr, right, low + 1);
 
-        return pivot;
+        return low + 1;
     }
 
     private void swapVal(int[] inputArr, int index, int low) {
@@ -41,6 +41,9 @@ public class QuickSort {
     }
 
     public void quickSortUtilityMethod() {
+        if(this.quickSortArr.length < 1) {
+            throw new IllegalStateException("Cannot sort and empty array.");
+        }
         quickSortMethod(this.quickSortArr, 0, this.quickSortArr.length - 1);
     }
 
