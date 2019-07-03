@@ -8,12 +8,14 @@ public class QuickSort {
     }
 
 
-    public void QuickSortMethod(int[] inputArr, int left, int right) {
+    private void quickSortMethod(int[] inputArr, int left, int right) {
 
-        int position = partition(inputArr, left, right);
+        if(left < right) {
+            int position = partition(inputArr, left, right);
 
-        QuickSortMethod(inputArr, left, position - 1);
-        QuickSortMethod(inputArr, position + 1, right);
+            quickSortMethod(inputArr, left, position - 1);
+            quickSortMethod(inputArr, position + 1, right);
+        }
 
     }
 
@@ -36,6 +38,10 @@ public class QuickSort {
         int temp = inputArr[index];
         inputArr[index] = inputArr[low];
         inputArr[low] = temp;
+    }
+
+    public void quickSortUtilityMethod() {
+        quickSortMethod(this.quickSortArr, 0, this.quickSortArr.length - 1);
     }
 
     public int[] getQuickSortArr() {
