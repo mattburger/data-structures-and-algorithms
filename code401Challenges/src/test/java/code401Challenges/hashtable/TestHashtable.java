@@ -2,8 +2,8 @@ package code401Challenges.hashtable;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.*;
 
 public class TestHashtable {
 
@@ -32,5 +32,8 @@ public class TestHashtable {
                 "{ [Dum, test2] [Dum, testAgain] [Dum, test] }",
                 testHT.get("Dum"));
         assertEquals("get method shoud return 'another TEst' ", "another TEst", testHT.get("key space"));
+        assertTrue("'Tesla' exists in the Hashtable and the contains method should return true", testHT.contains("Tesla"));
+        assertFalse("'Taylor doesn't exist in the Hashtable and the contains method should return false",
+                testHT.contains("Taylor"));
     }
 }
