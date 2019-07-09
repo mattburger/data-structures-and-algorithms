@@ -21,4 +21,16 @@ public class HtNode<T> extends Node {
     public void setNext(HtNode htNode) {
         this.next = htNode;
     }
+    public Boolean hasNext() {
+        if(this.next == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public HtNode getNext() {
+        return (HtNode) this.next;
+    }
+
 }
