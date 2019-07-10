@@ -25,4 +25,4 @@ Find the first repeated word in a book.
   - O(n)
 ## Solution
 <!-- Embedded whiteboard image -->
-![whiteboard]()
+![whiteboard](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/main/resources/duplicate.jpg)
