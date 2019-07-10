@@ -26,3 +26,6 @@
 ### Challenge 15
 ### Challenge 16
 - [FizzBuzz](https://github.com/mattburger/data-structures-and-algorithms/tree/master/code401Challenges/src/main/java/code401Challenges/fizzbuzzTree)
+
+### Challenge for Class 31
+- [firstDuplicate](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/main/java/code401Challenges/firstDuplicate)
