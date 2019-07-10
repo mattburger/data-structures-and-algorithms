@@ -26,3 +26,5 @@ Find the first repeated word in a book.
 ## Solution
 <!-- Embedded whiteboard image -->
 ![whiteboard](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/main/resources/duplicate.jpg)
+### Code
+[solution] (https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/main/java/code401Challenges/firstDuplicate/FirstDuplicate.java)
