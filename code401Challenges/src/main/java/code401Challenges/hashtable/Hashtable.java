@@ -1,5 +1,9 @@
 package code401Challenges.hashtable;
 
+import com.sun.net.httpserver.Authenticator;
+
+import java.rmi.activation.ActivateFailedException;
+
 import static java.lang.Math.abs;
 
 public class Hashtable {
@@ -41,16 +45,18 @@ public class Hashtable {
             return null;
         } else if(this.map[hashKey].hasNext()){
             HtNode tmp = this.map[hashKey];
-            String output = String.format("{ [%s, %s]", this.map[hashKey].key, this.map[hashKey].data);
             while(tmp.hasNext()) {
-                output += String.format(" [%s, %s]", tmp.getNext().key, tmp.getNext().data);
+
+                if(tmp.key.equals(key) ) {
+                    return (String) tmp.data;
+                }
+
                 tmp = tmp.getNext();
+
             }
-            output += " }";
-            return output;
-        } else {
-            return (String) this.map[hashKey].data;
         }
+
+        return (String) this.map[hashKey].data;
     }
 
     public Boolean contains(String key) {
