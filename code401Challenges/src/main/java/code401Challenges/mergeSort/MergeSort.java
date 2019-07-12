@@ -8,69 +8,54 @@ public class MergeSort {
     }
 
 
-    public int[] mergeSortMethod(int[] inputArr) {
-        int len = inputArr.length;
-        int[] outputArr = new int[len];
-
-        if (len > 1) {
-            int mid = len / 2;
-            int[] firstHalf = new int[mid];
-            int[] secondHalf = new int[len - mid];
-
-            for (int i = 0; i < mid; i++) {
-                firstHalf[i] = inputArr[i];
-            }
-            for (int i = mid; i < len; i++) {
-                secondHalf[i - mid] = inputArr[i];
-            }
-
-            mergeSortMethod(firstHalf);
-            mergeSortMethod(secondHalf);
-            merge(firstHalf, secondHalf, outputArr);
+    public void sort(int[] inputArr, int len) {
+        
+        if(len < 1 || inputArr == null) {
+            throw new IllegalArgumentException("Cannot sort an empty or null array");
         }
-        return outputArr;
+        if(len < 2) {
+            return;
+        }
+
+        int mid = len / 2;
+        int[] firstHalf = new int[mid];
+        int[] secondHalf = new int[len - mid];
+
+        for (int i = 0; i < mid; i++) {
+            firstHalf[i] = inputArr[i];
+        }
+        for (int i = mid; i < len; i++) {
+            secondHalf[i - mid] = inputArr[i];
+        }
+
+        sort(firstHalf, mid);
+        sort(secondHalf, len - mid);
+        merge(inputArr, firstHalf, secondHalf, mid, len - mid);
     }
 
-    private void merge(int[] firstHalf, int[] secondHalf, int[] newSortedArr) {
+    private void merge(int[] arr, int[] firstHalf, int[] secondHalf, int firstLen, int secLen) {
         int i = 0, j = 0, k = 0;
 
-        while (i < firstHalf.length && j < secondHalf.length) {
+        while (i < firstLen && j < secLen) {
             if (firstHalf[i] <= secondHalf[j]) {
-                newSortedArr[k] = firstHalf[i];
-                i = i + 1;
+                arr[k++] = firstHalf[i++];
             } else {
-                newSortedArr[k] = secondHalf[j];
-                j = j + 1;
-            }
-
-            k = k + 1;
-        }
-
-        if (i == firstHalf.length) {
-            while (j < secondHalf.length) {
-                newSortedArr[k] = secondHalf[j];
-
-                j = j + 1;
-                k = k + 1;
-            }
-        } else {
-            while (i < firstHalf.length) {
-                newSortedArr[k] = firstHalf[i];
-
-                i = i + 1;
-                k = k + 1;
+                arr[k++] = secondHalf[j++];
             }
         }
 
-        //return newSortedArr;
+        while (i < firstLen) {
+            arr[k++] = firstHalf[i++];
+        }
+
+        while (j < secLen) {
+            arr[k++] = secondHalf[j++];
+        }
     }
 
-    public int[] mergeUtility() {
-        this.mergeSortArr = mergeSortMethod(this.mergeSortArr);
+    public int[] mergeSortUtility() {
+        sort(this.mergeSortArr, this.mergeSortArr.length);
 
-        for(int i = 0; i < this.mergeSortArr.length; i++) {
-            System.out.println(this.mergeSortArr[i]);
-        }
         return this.mergeSortArr;
     }
 }
