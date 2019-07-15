@@ -33,3 +33,29 @@ Utilized an array for the base model of the hashtable out of tradition. A node c
 - add(key, value) - adds a key/value pair to the hashtable
 - get(key) - retrieves the value stored at the specified key
 - contains(key) - returns true or false depending on if the key exists
+
+# Hashmap LEFT JOIN
+<!-- Short summary or background information -->
+Implement a simplified LEFT JOIN for 2 Hashmaps.
+
+## Challenge
+<!-- Description of the challenge -->
+- Write a function that LEFT JOINs two hashmaps into a single data structure.
+- The first parameter is a hashmap that has word strings as keys, and a synonym of the key as values.
+- The second parameter is a hashmap that has word strings as keys, and antonyms of the key as values.
+- Combine the key and corresponding values (if they exist) into a new data structure according to LEFT JOIN logic.
+- LEFT JOIN means all the values in the first hashmap are returned, and if values exist in the “right” hashmap, they are appended to the result row. If no values exist in the right hashmap, then some flavor of NULL should be appended to the result row.
+- The returned data structure that holds the results is up to you. It doesn’t need to exactly match the output below, so long as it achieves the LEFT JOIN logic.
+- Avoid utilizing any of the library methods available to your language.
+
+## Approach & Efficiency
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+- leftJoin method uses 3 hashmaps hm1, hm2, hm3
+- hm1 and hm2 have String keys and values
+- hm3 has a String key and List<String> value
+- copy hm1 to hm2
+- join hm2 to hm3
+
+## Solution
+<!-- Embedded whiteboard image -->
+- ![whiteboard]()
