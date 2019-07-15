@@ -58,4 +58,4 @@ Implement a simplified LEFT JOIN for 2 Hashmaps.
 
 ## Solution
 <!-- Embedded whiteboard image -->
-- ![whiteboard]()
+- ![whiteboard](https://github.com/mattburger/data-structures-and-algorithms/blob/master/code401Challenges/src/main/resources/join.jpg)
