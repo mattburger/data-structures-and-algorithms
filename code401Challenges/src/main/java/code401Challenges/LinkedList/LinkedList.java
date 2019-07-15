@@ -1,14 +1,16 @@
 package code401Challenges.LinkedList;
 
+import code401Challenges.stackandqueues.Node;
+
 import static java.lang.Math.abs;
 
-public class LinkedList {
+public class LinkedList<T> {
     public Node head = null;
 //    Node tail;
 
     //code challenge 6 additions
     //add node to end of list
-    public void append(Object data){
+    public void append(T data){
         Node newNode = new Node(data);
         newNode.next = null;
         Node lastNode;
@@ -29,7 +31,7 @@ public class LinkedList {
     }
 
     //insertBefore
-    public void insertBefore(Object value, Object newValue){
+    public void insertBefore(T value, T newValue){
         if(this.head == null){
             this.head = new Node(newValue);
             this.head.next = null;
@@ -51,17 +53,11 @@ public class LinkedList {
             catch (NullPointerException err){
                 throw new IllegalArgumentException("Bad target value");
             }
-            //}
-//            else{
-//                Node tmp = this.head;
-//                this.head = newNode;
-//                this.head.next = tmp;
-//            }
         }
     }
 
     //insertAfter
-    public void insertAfter(Object value, Object newValue){
+    public void insertAfter(T value, T newValue){
         if(this.head == null){
             this.head = new Node(newValue);
             this.head.next = null;
@@ -83,14 +79,11 @@ public class LinkedList {
             catch(NullPointerException err){
                 throw new IllegalArgumentException("Bad target value");
             }
-//            else{
-//                findVal.next = newNode;
-//            }
         }
     }
 
     //kth from end method challenge 7
-    public Object getKthFromEnd(int k) {
+    public T getKthFromEnd(int k) {
         if (this.head == null) {
             throw new IllegalStateException("can't find kth node of an empty linked list!");
         } else {
@@ -116,11 +109,11 @@ public class LinkedList {
                 throw new IllegalArgumentException("k must be withing the bounds of the list.");
             }
 
-            return main.data;
+            return (T)main.data;
         }
     }
 
-    public static Node mergeLists(LinkedList ls1, LinkedList ls2){
+    public Node mergeLists(LinkedList ls1, LinkedList ls2){
         if ( (ls1 == null) && (ls2 == null) ) {
             ls1.head = new Node(1);
             return ls1.head;
@@ -131,7 +124,7 @@ public class LinkedList {
         }else {
             Node ptr1 = ls1.head;
             Node ptr2 = ls2.head;
-//            LinkedList ls3 = new LinkedList();
+
             while ( (ptr1 != null) && (ptr2 != null) ) {
                 Node tmp = ptr1.next;
                 ptr1.next = ptr2;
@@ -155,73 +148,62 @@ public class LinkedList {
     }
 
 
-    public static class Node{
-        Object data;//data held within the node
-        Node next; // reference to next node or null
-//        Node prev;
 
-        //constructor
-        Node(Object data){
-            this.data = data;
-            this.next = null;
+    //insert value at start of list
+    public LinkedList insertAtHead(LinkedList list, T data){
+        Node newNode = new Node(data);
+        newNode.next = null;
+
+        //if head is null, make head the new value
+        if(list.head == null){
+            list.head = newNode;
+
+        }
+        //move old head to the right and insert new head
+        else{
+            Node tmp = list.head; //temporary holder
+            newNode.next = list.head;
+            list.head = newNode;
         }
 
-        //insert value at start of list
-        public static LinkedList insertAtHead(LinkedList list, Object data){
-            Node newNode = new Node(data);
-            newNode.next = null;
+        return list;
+    }
 
-            //if head is null, make head the new value
-            if(list.head == null){
-                list.head = newNode;
+    //print LinkedList
+    public String printLinkeList(LinkedList list){
+        Node currentNode = list.head;
+        String output = "List contents: ";
 
+        //if head is null than return a message stating there is no data to print
+        if(currentNode == null){
+            return "Linked List has no data.";
+        }
+        //traverse list and add each node's data to output
+        else{
+            while(currentNode != null){
+                output = output + currentNode.data + " ";
+                currentNode = currentNode.next;
             }
-            //move old head to the right and insert new head
+
+            return output;
+        }
+    }
+
+    //indicate if value exists in list
+    public boolean linkedListIncludes(T value){
+        Node currentNode = this.head;
+        if(currentNode == null){
+            return false;
+        }
+        else{
+            while( (currentNode.next != null) && (currentNode.data != value) ){
+                currentNode = currentNode.next;
+            }
+            if(currentNode.data == value){
+                return true;
+            }
             else{
-                Node tmp = list.head; //temporary holder
-                newNode.next = list.head;
-                list.head = newNode;
-            }
-
-            return list;
-        }
-
-        //print LinkedList
-        public static String printLinkeList(LinkedList list){
-            Node currentNode = list.head;
-            String output = "List contents: ";
-
-            //if head is null than return a message stating there is no data to print
-            if(currentNode == null){
-                return "Linked List has no data.";
-            }
-            //traverse list and add each node's data to output
-            else{
-                while(currentNode != null){
-                    output = output + currentNode.data + " ";
-                    currentNode = currentNode.next;
-                }
-
-                return output;
-            }
-        }
-
-        //indicate if value exists in list
-        public static boolean linkedListIncludes(LinkedList list, Object value){
-            Node currentNode = list.head;
-            if(currentNode == null){
                 return false;
-            }
-            else{
-                while( (currentNode.next != null) && (currentNode.data != value) ){
-                    currentNode = currentNode.next;
-                }
-                if(currentNode.data == value){
-                    return true;
-                }
-                else{
-                    return false;
-                }
             }
         }
     }

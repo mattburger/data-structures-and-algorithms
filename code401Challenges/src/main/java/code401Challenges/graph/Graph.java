@@ -14,6 +14,8 @@ public class Graph<T> {
     }
 
     public void addEdge(GraphNode a, GraphNode b) {
-        if(a.)
+        if(!a.getNeighbors().linkedListIncludes(b) ) {
+            a.getNeighbors().append(b);
+        }
     }
 }
