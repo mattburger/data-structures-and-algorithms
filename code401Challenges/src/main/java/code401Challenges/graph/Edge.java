@@ -1,39 +1,39 @@
 package code401Challenges.graph;
 
 public class Edge {
-    private GraphNode vertixA;
-    private GraphNode vertixB;
-    private Weight weight;
+    private Graph source;
+    private Graph destination;
+    private int weight;
 
-    public Edge(GraphNode vertixA, GraphNode vertixB, Weight weight) {
-        this.vertixA = vertixA;
-        this.vertixB = vertixB;
+    public Edge(Graph source, Graph destination, int weight) {
+        this.source = source;
+        this.destination = destination;
         this.weight = weight;
     }
 
     //Getters
-    public GraphNode getVerticeA() {
-        return this.vertixA;
+    public Graph getSource() {
+        return this.source;
     }
 
-    public GraphNode getVerticeB() {
-        return this.vertixB;
+    public Graph getDestination() {
+        return this.destination;
     }
 
-    public Weight getWeight() {
+    public int getWeight() {
         return this.weight;
     }
 
     //Setters
-    public void setVerticeA(GraphNode verticeA) {
-        this.vertixA = verticeA;
+    public void setSource(Graph source) {
+        this.source = source;
     }
 
-    public void setVerticeB(GraphNode verticeB) {
-        this.vertixB = verticeB;
+    public void setDestination(Graph destination) {
+        this.destination = destination;
     }
 
-    public void setWeight(Weight weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 }

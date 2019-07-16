@@ -1,21 +1,52 @@
 package code401Challenges.graph;
 
-public class Graph<T> {
-    private GraphNode vertix;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
-    public Graph(GraphNode vertix) {
-        this.vertix = vertix;
+public class Graph<T> {
+    private T data;
+    private List<Edge> edges;
+    private List neighbors;
+    private List allNodes;
+
+    public Graph(T data) {
+        this.data = data;
+        this.neighbors = new LinkedList();
+        this.allNodes = new ArrayList();
     }
 
-    public GraphNode addNode(GraphNode node) {
-        this.vertix.getNeighbors().append(node);
+    public Graph addNode(Graph node) {
+        if(!this.neighbors.contains(node)) {
+            this.neighbors.add(node);
+            node.neighbors.add(this);
+
+            this.addEdge(this, node, 100);
+        }
 
         return node;
     }
 
-    public void addEdge(GraphNode a, GraphNode b) {
-        if(!a.getNeighbors().linkedListIncludes(b) ) {
-            a.getNeighbors().append(b);
-        }
+    public void addEdge(Graph src, Graph dest, int weight) {
+        src.edges.add(new Edge(src, dest, weight) );
+    }
+
+
+    //Getters
+    public T getData() {
+        return this.data;
+    }
+
+    public List getNeighbors() {
+        return this.neighbors;
+    }
+
+    //Setters
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    public void setNeighbors(List neighbors) {
+        this.neighbors = neighbors;
     }
 }
