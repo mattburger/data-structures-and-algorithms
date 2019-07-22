@@ -21,4 +21,8 @@ public class Node<T> {
         edges.add(newEdge);
         destination.edges.add(runBack);
     }
+
+    public T getValue() {
+        return this.value;
+    }
 }
