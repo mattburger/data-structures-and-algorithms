@@ -1,6 +1,6 @@
 package code401Challenges.graph;
 
-import code401Challenges.breadthFirst.BreadthFirst;
+import code401Challenges.graph.breadthFirst.BreadthFirst;
 import org.junit.Test;
 
 import java.util.List;

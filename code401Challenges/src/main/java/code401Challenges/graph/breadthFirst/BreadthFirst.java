@@ -1,4 +1,4 @@
-package code401Challenges.breadthFirst;
+package code401Challenges.graph.breadthFirst;
 
 import code401Challenges.graph.Edge;
 import code401Challenges.graph.Node;
