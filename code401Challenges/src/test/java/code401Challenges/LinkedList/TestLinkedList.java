@@ -19,9 +19,9 @@ public class TestLinkedList {
     @Test
     public void testLinkedListInsertion(){
         LinkedList ls = new LinkedList();
-        ls = LinkedList.Node.insertAtHead(ls, 3);
-        ls = LinkedList.Node.insertAtHead(ls, 2);
-        ls = LinkedList.Node.insertAtHead(ls, 1);
+        ls.insertAtHead(ls, 3);
+        ls.insertAtHead(ls, 2);
+        ls.insertAtHead(ls, 1);
 
         assertNotNull("insertAtStart should return the list with the new node added at the start. ");
 
@@ -31,58 +31,58 @@ public class TestLinkedList {
     @Test
     public void testLinkedListPrint_nodesPresent(){
         LinkedList ls = new LinkedList();
-        ls = LinkedList.Node.insertAtHead(ls, 3);
-        ls = LinkedList.Node.insertAtHead(ls, 2);
-        ls = LinkedList.Node.insertAtHead(ls, 1);
+        ls.insertAtHead(ls, 3);
+        ls.insertAtHead(ls, 2);
+        ls.insertAtHead(ls, 1);
         String expectedOutput = "List contents: 1 2 3 ";
 
-        assertEquals("printLinkedList should return contents of the linked list, or a message stating there is not data. ", expectedOutput, LinkedList.Node.printLinkeList(ls));
+        assertEquals("printLinkedList should return contents of the linked list, or a message stating there is not data. ", expectedOutput, ls.printLinkeList(ls));
     }
 
     @Test
     public void testLinkedListPrint_differentTypes(){
         Integer[] testArr = {1, 2, 3};
         LinkedList ls = new LinkedList();
-        ls = LinkedList.Node.insertAtHead(ls, 3);
-        ls = LinkedList.Node.insertAtHead(ls, '2');
-        ls = LinkedList.Node.insertAtHead(ls, true);
+        ls.insertAtHead(ls, 3);
+        ls.insertAtHead(ls, '2');
+        ls.insertAtHead(ls, true);
         String expectedOutput = "List contents: true 2 3 ";
 
-        assertEquals("printLinkedList should return contents of the linked list, or a message stating there is not data. ", expectedOutput, LinkedList.Node.printLinkeList(ls));
+        assertEquals("printLinkedList should return contents of the linked list, or a message stating there is not data. ", expectedOutput, ls.printLinkeList(ls));
     }
 
     @Test
     public void testLinkedListPrint_noNodesPresent(){
         LinkedList ls = new LinkedList();
         String expectedOutput = "Linked List has no data.";
-        assertEquals("printLinkedList should return contents of the linked list, or a message stating there is not data. ", expectedOutput, LinkedList.Node.printLinkeList(ls));
+        assertEquals("printLinkedList should return contents of the linked list, or a message stating there is not data. ", expectedOutput, ls.printLinkeList(ls));
     }
 
     //testing for includes method-------------------------------------
     @Test
     public void testLinkedListIncludes_valuePresent(){
         LinkedList ls = new LinkedList();
-        ls = LinkedList.Node.insertAtHead(ls, 3);
-        ls = LinkedList.Node.insertAtHead(ls, 2);
-        ls = LinkedList.Node.insertAtHead(ls, 1);
-        boolean testedOutput = LinkedList.Node.linkedListIncludes(ls, 3);
+        ls.insertAtHead(ls, 3);
+        ls.insertAtHead(ls, 2);
+        ls.insertAtHead(ls, 1);
+        boolean testedOutput = ls.linkedListIncludes(3);
         assertTrue("linkedListIncludes should return true or false. ", testedOutput);
     }
 
     @Test
     public void testLinkedListIncludes_valueNotPresent() {
         LinkedList ls = new LinkedList();
-        ls = LinkedList.Node.insertAtHead(ls, 3);
-        ls = LinkedList.Node.insertAtHead(ls, 2);
-        ls = LinkedList.Node.insertAtHead(ls, 1);
-        boolean testedOutput = LinkedList.Node.linkedListIncludes(ls, 7);
+        ls.insertAtHead(ls, 3);
+        ls.insertAtHead(ls, 2);
+        ls.insertAtHead(ls, 1);
+        boolean testedOutput = ls.linkedListIncludes( 7);
         assertFalse("linkedListIncludes should return true or false. ", testedOutput);
     }
 
     @Test
     public void testLinkedListIncludes_noNodesPresent(){
         LinkedList ls = new LinkedList();
-        boolean testedOutput = LinkedList.Node.linkedListIncludes(ls, 3);
+        boolean testedOutput = ls.linkedListIncludes(3);
         assertFalse("linkedListIncludes should return true or false. ", testedOutput);
     }
 
@@ -91,7 +91,7 @@ public class TestLinkedList {
     public void testAppend_oneValue(){
         LinkedList ls = new LinkedList();
         ls.append(5);
-        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String actualOutput = ls.printLinkeList(ls);
         String expectedOutput = "List contents: 5 ";
         assertEquals("append should add a value to the end of the list. ", expectedOutput, actualOutput);
     }
@@ -104,7 +104,7 @@ public class TestLinkedList {
         ls.append(true);
         ls.append(10);
         ls.append("End");
-        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String actualOutput = ls.printLinkeList(ls);
         String expectedOutput = "List contents: 5 C true 10 End ";
         assertEquals("append should add a value to the end of the list. ", expectedOutput, actualOutput);
     }
@@ -117,7 +117,7 @@ public class TestLinkedList {
         ls.append(4);
         ls.insertBefore(4,3);
 
-        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String actualOutput = ls.printLinkeList(ls);
         String expectedOutput = "List contents: 1 2 3 4 ";
         assertEquals("insertBefore should add a value before the designate value. ", expectedOutput, actualOutput);
     }
@@ -132,7 +132,7 @@ public class TestLinkedList {
         ls.append(5);
         ls.insertBefore(5,4);
 
-        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String actualOutput = ls.printLinkeList(ls);
         String expectedOutput = "List contents: 1 2 4 5 5 5 ";
         assertEquals("insertBefore should add a value before the designated value. If there are multiple target values, insert will happen before the 1st occurrence. ", expectedOutput, actualOutput);
     }
@@ -147,7 +147,7 @@ public class TestLinkedList {
         ls.append(5);
         ls.insertBefore(4,3);
 
-        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String actualOutput = ls.printLinkeList(ls);
         String expectedOutput = "List contents: 1 2 4 5 5 5 ";
         assertEquals("insertBefore should add a value before the designated value. If there are multiple target values, insert will happen before the 1st occurrence. ", expectedOutput, actualOutput);
     }
@@ -160,7 +160,7 @@ public class TestLinkedList {
         ls.append(2);
         ls.append(4);
         ls.insertAfter(3, 4);
-        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String actualOutput = ls.printLinkeList(ls);
         String expectedOutput = "List contents: 1 2 4 2 4 ";
         assertEquals("insertAfter should add a value after the designated value. If there are multiple target values, insert will happen after the 1st occurrence.", expectedOutput, actualOutput);
     }
@@ -173,7 +173,7 @@ public class TestLinkedList {
         ls.append(3);
         ls.insertAfter(3, 4);
 
-        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String actualOutput = ls.printLinkeList(ls);
         String expectedOutput = "List contents: 1 2 3 4 ";
         assertEquals("insertAfter should add a value after the designated value. ", expectedOutput, actualOutput);
     }
@@ -186,7 +186,7 @@ public class TestLinkedList {
         ls.append(2);
         ls.append(4);
         ls.insertAfter(2, 4);
-        String actualOutput = LinkedList.Node.printLinkeList(ls);
+        String actualOutput = ls.printLinkeList(ls);
         String expectedOutput = "List contents: 1 2 4 2 4 ";
         assertEquals("insertAfter should add a value after the designated value. If there are multiple target values, insert will happen after the 1st occurrence.", expectedOutput, actualOutput);
     }
@@ -270,9 +270,9 @@ public class TestLinkedList {
 
 
         LinkedList actualLs3 = new LinkedList();
-        actualLs3.head = LinkedList.mergeLists(ls1, ls2);
-        String expectedOutput = LinkedList.Node.printLinkeList(ls3);
-        String actualOutput = LinkedList.Node.printLinkeList(actualLs3);
+        actualLs3.head = actualLs3.mergeLists(ls1, ls2);
+        String expectedOutput = actualLs3.printLinkeList(ls3);
+        String actualOutput = actualLs3.printLinkeList(actualLs3);
 
         assertEquals("both list should be the same", expectedOutput, actualOutput);
     }
@@ -294,9 +294,9 @@ public class TestLinkedList {
 
 
         LinkedList actualLs3 = new LinkedList();
-        actualLs3.head = LinkedList.mergeLists(ls1, ls2);
-        String expectedOutput = LinkedList.Node.printLinkeList(ls3);
-        String actualOutput = LinkedList.Node.printLinkeList(actualLs3);
+        actualLs3.head = actualLs3.mergeLists(ls1, ls2);
+        String expectedOutput = actualLs3.printLinkeList(ls3);
+        String actualOutput = actualLs3.printLinkeList(actualLs3);
 
         assertEquals("both list should be the same", expectedOutput, actualOutput);
     }
@@ -314,9 +314,9 @@ public class TestLinkedList {
         ls3.append(5);
 
         LinkedList actualLs3 = new LinkedList();
-        actualLs3.head = LinkedList.mergeLists(ls1, ls2);
-        String expectedOutput = LinkedList.Node.printLinkeList(ls3);
-        String actualOutput = LinkedList.Node.printLinkeList(actualLs3);
+        actualLs3.head = actualLs3.mergeLists(ls1, ls2);
+        String expectedOutput = ls3.printLinkeList(ls3);
+        String actualOutput = actualLs3.printLinkeList(actualLs3);
 
         assertEquals("both list should be the same", expectedOutput, actualOutput);
     }
@@ -330,9 +330,9 @@ public class TestLinkedList {
         ls3.append(1);
 
         LinkedList actualLs3 = new LinkedList();
-        actualLs3.head = LinkedList.mergeLists(ls1, ls2);
+        actualLs3.head = actualLs3.mergeLists(ls1, ls2);
         String expectedOutput = "Linked List has no data.";
-        String actualOutput = LinkedList.Node.printLinkeList(actualLs3);
+        String actualOutput = actualLs3.printLinkeList(actualLs3);
 
         assertEquals("both list should be the same", expectedOutput, actualOutput);
     }
