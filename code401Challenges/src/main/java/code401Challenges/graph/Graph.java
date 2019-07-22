@@ -25,4 +25,14 @@ public class Graph<T> {
     public int size() {
         return this.size;
     }
+
+    public List<Node> breadthFirstSearch() {
+        List<Node> result = new ArrayList<>();
+        List<Node> visted = new ArrayList<>();
+        Queue toVisit = new Queue;
+
+        
+
+        return result;
+    }
 }
