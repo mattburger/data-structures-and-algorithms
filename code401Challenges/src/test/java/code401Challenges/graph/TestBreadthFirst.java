@@ -27,4 +27,14 @@ public class TestBreadthFirst {
         assertEquals("The returned list should be of size 4", 4, lst.size());
         assertEquals("The first value stored in the return List should be 'a'.", 'a', lst.get(0).getValue());
     }
+
+    @Test(expected = IllegalStateException.class)
+    public void testBreadthFirst_fail() {
+        Node a = null;
+
+        BreadthFirst bf = new BreadthFirst(a);
+        List<Node> lst = bf.breadthFirstSearch();
+
+        assertEquals("Will not run.", 4, lst.size());
+    }
 }

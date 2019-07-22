@@ -15,6 +15,9 @@ public class BreadthFirst {
     }
 
     public List<Node> breadthFirstSearch() {
+        if(this.node == null) {
+            throw new IllegalStateException("Search cannot be done on null");
+        }
         List<Node> result = new ArrayList<>();
         Queue toVisit = new Queue();
 
