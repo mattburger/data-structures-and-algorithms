@@ -1,5 +1,6 @@
-package code401Challenges.graph;
+package code401Challenges.graph.breadthFirst;
 
+import code401Challenges.graph.Node;
 import code401Challenges.graph.breadthFirst.BreadthFirst;
 import org.junit.Test;
 
